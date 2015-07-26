@@ -26,8 +26,6 @@ $dark:                            #444 !default;
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=2.0.1");
@@ -8871,104 +8869,5 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-
-body {
-  font-family: "Open Sans", sans-serif; }
-  body input, body input::-webkit-placeholder {
-    font-family: "Open Sans", sans-serif; }
-
-.button-primary, .button-primary:active, .button-primary:hover {
-  background: #FF2E63;
-  color: white;
-  border: 0px;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300; }
-
-triangle {
-  /*.triangle {
-  	position: absolute;
-  	width: 0;
-  	height: 0;
-  	top: 0;
-  	left: 0;
-  	border-left: solid transparent;
-  	border-right: solid transparent;
-  	border-top: solid $theme-color;
-  }*/
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: block; }
-  triangle svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-filter: drop-shadow(0 0 3px black);
-    filter: drop-shadow(0 0 3px black); }
-  triangle div[class$='logo'] {
-    position: absolute;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    background-size: 70px;
-    background-repeat: no-repeat;
-    background-position: center center; }
-  triangle .avnet_logo {
-    top: 20%;
-    background-image: url("../img/avnet_logo.png"); }
-  triangle .apl_logo {
-    bottom: 25%;
-    background-image: url("../img/apl_logo.png"); }
-
-.login_wrapper {
-  width: 100%;
-  height: 100%; }
-  .login_wrapper .login_form_wrapper {
-    position: absolute;
-    width: 95%;
-    left: 2.5%;
-    bottom: 50px; }
-    .login_wrapper .login_form_wrapper .item-input {
-      border-left: 0px;
-      border-right: 0px; }
-    .login_wrapper .login_form_wrapper input {
-      text-align: center;
-      font-weight: 100;
-      font-size: 16px;
-      color: black; }
-    .login_wrapper .login_form_wrapper input::-webkit-input-placeholder {
-      color: black; }
-    .login_wrapper .login_form_wrapper button {
-      margin-top: 20px; }
-
-.profile_wrapper {
-  width: 100%;
-  height: 100%; }
-  .profile_wrapper .get_started_wrapper {
-    box-sizing: border-box;
-    margin-top: 30px; }
-    .profile_wrapper .get_started_wrapper p {
-      display: block;
-      font-size: 30px;
-      text-align: center;
-      line-height: 30px;
-      font-weight: lighter; }
-    .profile_wrapper .get_started_wrapper .get_started_button {
-      box-sizing: border-box;
-      display: block;
-      margin: 0 auto;
-      margin-top: 50px;
-      width: 75px;
-      height: 75px;
-      font-size: 70px;
-      padding: 2px;
-      text-align: center;
-      border-radius: 50%;
-      background: #50D2C1;
-      color: white; }
 
 /*# sourceMappingURL=ionic.app.css.map */

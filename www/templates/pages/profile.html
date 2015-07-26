@@ -1,14 +1,23 @@
 <ion-view>
-    <div class="profile_wrapper">
+    <div class="page_wrapper profile_wrapper">
         <triangle></triangle>
-        <div class="get_started_wrapper">
+        <span class="menu_button ball" ng-click="toggleLeft()">
+            <i class="icon ion-navicon"></i>
+        </span>
+        <!-- <div class="get_started_wrapper">
             <div class="get_started_message">
                 <p>Get Started</p>
                 <p>Create Your Team</p>
             </div>
-            <span class="get_started_button">
+            <span class="ball get_started_button" ng-click="getStarted()">
             	<i class="icon ion-ios-plus-empty"></i>
             </span>
+        </div> -->
+
+        <div class="profile_info_wrapper">
+            <span class="ball profile_info_ball transfer_ball">100</span>
+            <span class="ball profile_info_ball rank_ball">10</span>
+            <span class="ball profile_info_ball points_ball">1000</span>
         </div>
     </div>
 </ion-view>

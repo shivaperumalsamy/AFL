@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNames.SERVICES, AFL.moduleNames.DIRECTIVES, AFL.moduleNames.FILTERS])
 
-.run(function($ionicPlatform) {
+.run(['$ionicPlatform', '$rootScope', '$ionicSideMenuDelegate', '$log', function($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $log) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,8 +15,13 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-  })
-})
+
+
+    $rootScope.toggleLeft = function() {
+      $ionicSideMenuDelegate.toggleLeft();
+    }
+  });
+}])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
   $stateProvider

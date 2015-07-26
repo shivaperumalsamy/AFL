@@ -1,1 +1,260 @@
-/* Empty. Add your own CSS if you like */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+body {
+  font-family: "Open Sans", sans-serif; }
+  body input,
+  body input::-webkit-placeholder {
+    font-family: "Open Sans", sans-serif; }
+
+.button-primary,
+.button-primary:active,
+.button-primary:hover {
+  background: #FF2E63;
+  color: white;
+  border: 0px;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300; }
+
+triangle {
+  /*.triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 0;
+      left: 0;
+      border-left: solid transparent;
+      border-right: solid transparent;
+      border-top: solid $theme-color;
+  }*/
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block; }
+  triangle svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-filter: drop-shadow(0 0 3px black);
+    filter: drop-shadow(0 0 3px black); }
+  triangle div[class$='logo'] {
+    position: absolute;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  triangle .avnet_logo {
+    top: 20%;
+    background-image: url("../img/avnet_logo.png"); }
+  triangle .apl_logo {
+    bottom: 25%;
+    background-image: url("../img/apl_logo.png"); }
+
+.page_wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+.general_form {
+  position: absolute;
+  width: 95%;
+  left: 2.5%;
+  bottom: 50px; }
+  .general_form .item-input {
+    border-left: 0px;
+    border-right: 0px; }
+  .general_form input {
+    text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+    color: black; }
+  .general_form input::-webkit-input-placeholder {
+    color: black; }
+  .general_form button {
+    margin-top: 20px; }
+
+.menu_button {
+  display: inline-block;
+  top: 8px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  z-index: 100; }
+
+.table_header {
+  margin: 10px auto;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  color: white;
+  background: #FF2E63; }
+
+.ball {
+  box-sizing: border-box;
+  position: absolute;
+  text-align: center;
+  color: white;
+  background: #50D2C1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px black; }
+
+/*LEADER BOARD BANNER */
+.banner {
+  background: #FF2E63;
+  box-sizing: border-box;
+  width: 95%;
+  margin: 0 auto;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  height: 40px;
+  padding: 10px 0px;
+  margin-top: 20px;
+  position: relative;
+  font-weight: lighter; }
+  .banner:before, .banner:after {
+    content: '';
+    position: absolute;
+    display: inline-block; }
+  .banner:before {
+    left: -1px;
+    top: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid white; }
+  .banner:after {
+    right: -1px;
+    top: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid white; }
+
+/*SIDE MENU*/
+ion-side-menu {
+  background: #FF2E63 !important; }
+  ion-side-menu .item {
+    border-color: white;
+    border-collapse: collapse; }
+  ion-side-menu .item-content {
+    background: #FF2E63 !important;
+    color: white;
+    font-weight: lighter;
+    text-transform: uppercase; }
+  ion-side-menu div[class$=logo] {
+    height: 70px;
+    background-position: center;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    margin: 10px 0px; }
+  ion-side-menu .avnet_logo {
+    background-image: url("../img/avnet_logo.png"); }
+  ion-side-menu .apl_logo {
+    background-image: url("../img/apl_logo.png"); }
+
+.profile_wrapper .get_started_wrapper {
+  box-sizing: border-box;
+  margin-top: 30px; }
+  .profile_wrapper .get_started_wrapper p {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: lighter; }
+  .profile_wrapper .get_started_wrapper .get_started_button {
+    box-sizing: border-box;
+    display: block;
+    position: static;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 75px;
+    height: 75px;
+    font-size: 70px;
+    padding: 2px; }
+.profile_wrapper .profile_info_wrapper {
+  position: relative;
+  margin-top: 35px; }
+  .profile_wrapper .profile_info_wrapper .profile_info_ball {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: lighter; }
+    .profile_wrapper .profile_info_wrapper .profile_info_ball:before {
+      display: inline-block;
+      color: black;
+      width: 121%;
+      height: 30px;
+      position: absolute;
+      font-size: 14px;
+      left: -10.5%;
+      top: -25px;
+      text-transform: uppercase;
+      font-weight: lighter;
+      text-align: center; }
+  .profile_wrapper .profile_info_wrapper .transfer_ball {
+    left: 20px;
+    top: -50px; }
+    .profile_wrapper .profile_info_wrapper .transfer_ball:before {
+      content: 'Transfers'; }
+  .profile_wrapper .profile_info_wrapper .rank_ball {
+    left: calc(50% - 30px); }
+    .profile_wrapper .profile_info_wrapper .rank_ball:before {
+      content: "Rank"; }
+  .profile_wrapper .profile_info_wrapper .points_ball {
+    right: 20px;
+    top: -50px; }
+    .profile_wrapper .profile_info_wrapper .points_ball:before {
+      content: "Points"; }
+
+.create_team_wrapper .create_team_form_wrapper .item-input {
+  margin-bottom: 50px; }
+
+.leader_board_wrapper .board_wrapper > * {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); }
+.leader_board_wrapper .board_wrapper .board_header {
+  width: 95%; }
+  .leader_board_wrapper .board_wrapper .board_header span {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    font-weight: lighter; }
+  .leader_board_wrapper .board_wrapper .board_header span:nth-child(1) {
+    width: 20%; }
+  .leader_board_wrapper .board_wrapper .board_header span:nth-child(2) {
+    width: 55%; }
+  .leader_board_wrapper .board_wrapper .board_header span:nth-child(3) {
+    width: 20%;
+    text-align: right; }
+.leader_board_wrapper .board_wrapper .board_content {
+  width: 95%;
+  margin: 10px auto;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); }
+  .leader_board_wrapper .board_wrapper .board_content .board_content_row {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    padding-top: 5px; }
+    .leader_board_wrapper .board_wrapper .board_content .board_content_row:nth-child(odd) {
+      background: #F7F7F7; }
+    .leader_board_wrapper .board_wrapper .board_content .board_content_row span {
+      display: inline-block;
+      box-sizing: border-box;
+      height: 100%; }
+      .leader_board_wrapper .board_wrapper .board_content .board_content_row span:nth-child(1) {
+        width: 20%;
+        text-align: center; }
+      .leader_board_wrapper .board_wrapper .board_content .board_content_row span:nth-child(2) {
+        width: 55%; }
+      .leader_board_wrapper .board_wrapper .board_content .board_content_row span:nth-child(3) {
+        width: 20%;
+        text-align: right; }
+
+/*# sourceMappingURL=style.css.map */

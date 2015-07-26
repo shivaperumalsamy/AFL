@@ -1,3 +1,15 @@
 <ion-view>
-	<ion-content>This is create_team.html</ion-content>
+	<div class="page_wrapper create_team_wrapper">
+		<triangle></triangle>
+		<div class="create_team_form_wrapper general_form">
+			<form name="createTeamForm" ng-submit="createTeamFormSubmit(createTeamForm) " novalidate>
+                <ion-item class="item-input">
+                    <input type="text" name="teamname" placeholder="Team Name" ng-model="createTeamFormObject.teamname" required/>
+                </ion-item>
+                <button type="submit" class="button button-primary button-block">Create Team</button>
+            </form>
+		</div>
+	</div>
+
+
 </ion-view>
