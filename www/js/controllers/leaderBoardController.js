@@ -1,0 +1,1 @@
+controllers.controller('LeaderBoardController', ['$scope', function($scope) {}]);

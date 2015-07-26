@@ -1,0 +1,1 @@
+controllers.controller('CreateTeamController', ['$scope', function($scope) {}]);

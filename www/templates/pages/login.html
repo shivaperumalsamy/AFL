@@ -1,0 +1,16 @@
+<ion-view>
+    <div class="login_wrapper">
+        <triangle with_avnet_logo></triangle>
+        <div class="login_form_wrapper">
+            <form name="loginForm" ng-submit="loginFormSubmit(loginForm) " novalidate>
+                <ion-item class="item-input">
+                    <input type="text" name="username" placeholder="Username" ng-model="loginFormObject.username" required/>
+                </ion-item>
+                <ion-item class="item-input">
+                    <input type="text" name="password" placeholder="Password" ng-model="loginFormObject.password" required/>
+                </ion-item>
+                <button type="submit" class="button button-primary button-block">Sign in</button>
+            </form>
+        </div>
+    </div>
+</ion-view>

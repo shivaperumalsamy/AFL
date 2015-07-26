@@ -1,0 +1,1 @@
+controllers.controller('ProfileController', ['$scope', function($scope) {}]);

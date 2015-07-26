@@ -1,0 +1,1 @@
+services.factory('ProfileFactory', [function() {}]);

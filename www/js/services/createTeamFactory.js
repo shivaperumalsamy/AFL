@@ -1,0 +1,1 @@
+services.factory('CreateTeamFactory', [function() {}]);

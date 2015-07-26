@@ -1,0 +1,1 @@
+controllers.controller('SquadSelectionController', ['$scope', function($scope) {}]);

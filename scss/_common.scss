@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+$theme-primary-color: #FF2E63;
+$theme-secondary-color: #50D2C1;
+$avnet-logo: '../img/avnet_logo.png';
+$apl-logo: '../img/apl_logo.png';
+$font-family: 'Open Sans';
+
+body {
+	font-family: $font-family, sans-serif;
+
+	input, input::-webkit-placeholder {
+		font-family: $font-family, sans-serif;
+	}
+}
+
+.button-primary, .button-primary:active, .button-primary:hover {
+	background: $theme-primary-color;
+	color: white;
+	border: 0px;
+	text-transform: uppercase;
+	font-family: $font-family, sans-serif;
+	font-weight: 300;
+}
+
+triangle {
+	/*.triangle {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		border-left: solid transparent;
+		border-right: solid transparent;
+		border-top: solid $theme-color;
+	}*/
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		-webkit-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));
+		filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));
+	}
+
+	div[class$='logo'] {
+		position: absolute;
+		left: 0;
+		height: 70px;
+		width: 100%;
+		background-size: 70px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	.avnet_logo {
+		top: 20%;
+ 		background-image: url($avnet-logo);
+	}
+
+	.apl_logo {
+		bottom: 25%;
+		background-image: url($apl-logo);
+	}
+}
+
