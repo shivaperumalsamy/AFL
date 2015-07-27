@@ -98,6 +98,9 @@ triangle {
     }
 }
 
+
+/*BALLS AND ICONS*/
+
 .menu_button {
     display: inline-block;
     top: 8px;
@@ -109,14 +112,6 @@ triangle {
     z-index: 100;
 }
 
-.table_header {
-    margin: 10px auto;
-    padding: 10px 0px;
-    text-transform: uppercase;
-    color: white;
-    background: $theme-primary-color;
-}
-
 .ball {
     box-sizing: border-box;
     position: absolute;
@@ -126,6 +121,14 @@ triangle {
     border-radius: 50%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
+
+.player_icon {
+    width: 20px;
+    height: 20px;
+    background: #theme-primary-color;
+}
+
+
 /*LEADER BOARD BANNER */
 
 .banner {
@@ -190,5 +193,41 @@ ion-side-menu {
     }
     .apl_logo {
         background-image: url('../img/apl_logo.png');
+    }
+}
+
+
+/*TABLE*/
+
+.table_wrapper {
+    width: 95%;
+    margin: 0 auto;
+    .table_header {
+        margin: 10px auto;
+        padding: 10px 0px;
+        text-transform: uppercase;
+        color: white;
+        background: $theme-primary-color;
+        text-align: center;
+        font-weight: lighter;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+    .table_content {
+        margin: 10px auto;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        .table_content_row {
+            width: 100%;
+            box-sizing: border-box;
+            height: 30px;
+            padding-top: 5px;
+            &:nth-child(odd) {
+                background: #F7F7F7;
+            }
+            span {
+                display: inline-block;
+                box-sizing: border-box;
+                height: 100%;
+            }
+        }
     }
 }

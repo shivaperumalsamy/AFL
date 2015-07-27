@@ -24,6 +24,7 @@
     .profile_info_wrapper {
         position: relative;
         margin-top: 35px;
+        height: 60px;
         .profile_info_ball {
             display: inline-block;
             width: 60px;
@@ -63,6 +64,113 @@
             top: -50px;
             &:before {
                 content: 'Points'
+            }
+        }
+    }
+    .current_squad_wrapper {
+        .table_header {
+            position: relative;
+            i {
+                position: absolute;
+                right: 10px;
+                top: 8px;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                font-size: 16px;
+                box-sizing: border-box;
+                padding: 3px 5px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: inline-block;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    border: 1px solid white;
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+        }
+        .table_content {
+            .table_content_row {
+                .player_icon i {
+                    display: block;
+                    margin: 0 auto;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-size: 10px;
+                    background-position: center center;
+                    background-color: $theme-primary-color;
+                    background-repeat: no-repeat;
+                }
+                .batsman {
+                    background-image: url('../img/icons/bat.png');
+                }
+                span {
+                    &:nth-child(1) {
+                        width: 20%;
+                        text-align: center;
+                    }
+                    &:nth-child(2) {
+                        width: 55%;
+                        vertical-align: top;
+                    }
+                    &:nth-child(3) {
+                        width: 20%;
+                        text-align: right;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+    }
+    .recent_matches_wrapper {
+        .table_content_row {
+            position: relative;
+            height: 40px;
+            padding-top: 10px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+            }
+            &:before {
+                left: -1px;
+                top: 0;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 40px solid $theme-primary-color;
+            }
+            &:after {
+                right: -1px;
+                top: 0;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-right: 40px solid $theme-primary-color;
+            }
+            .ball {
+                width: 30px;
+                height: 30px;
+                left: calc(50% - 15px);
+                top: 5px;
+                padding-top: 5px;
+                font-size: 12px;
+            }
+            span {
+                width: 30%;
+                text-align: center;
+                &:nth-child(1) {
+                    float: left;
+                    margin-left: 45px;
+                }
+                &:nth-child(3) {
+                    float: right;
+                    margin-right: 45px;
+                }
             }
         }
     }
