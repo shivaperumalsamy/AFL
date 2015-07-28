@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNames.SERVICES, AFL.moduleNames.DIRECTIVES, AFL.moduleNames.FILTERS])
 
-.run(['$ionicPlatform', '$rootScope', '$ionicSideMenuDelegate', '$log', function($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $log) {
+.run(['$ionicPlatform', '$rootScope', '$ionicSideMenuDelegate', '$ionicHistory', '$log', function($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $ionicHistory, $log) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +19,10 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
 
     $rootScope.toggleLeft = function() {
       $ionicSideMenuDelegate.toggleLeft();
+    }
+
+    $rootScope.goBack = function() {
+      $ionicHistory.goBack();
     }
   });
 }])
@@ -49,6 +53,11 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
     url : '/squad_selection', 
     templateUrl : 'templates/pages/squad_selection.html',
     controller : 'SquadSelectionController'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/pages/register.html',
+    controller : 'RegisterController'
   });
 
   $urlRouterProvider.otherwise('/login')

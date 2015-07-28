@@ -1,0 +1,146 @@
+.squad_selection_wrapper {
+    .squad_selection_header {
+    	.go_back_button {
+			position: absolute;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			top: 5px;
+			left: 5px;
+			font-size: 30px;
+			cursor: pointer;
+    	}
+    }
+    .next_match_header {
+        background: $theme-secondary-color;
+        width: 95%;
+        margin: 0px auto;
+        margin-top: 10px;
+        text-transform: none;
+    }
+    .status_icons_wrapper {
+        height: 50px;
+        box-sizing: border-box;
+        padding: 10px;
+        position: relative;
+        margin-top: 5px;
+        .status_icon {
+            width: 100px;
+            display: inline-block;
+            position: absolute;
+            text-align: left;
+            margin-left: 20px;
+            &:nth-child(1) {
+                left: 10px;
+            }
+            &:nth-child(2) {
+                left: calc(50% - 50px);
+            }
+            &:nth-child(3) {
+                right: 10px;
+            }
+
+            .rotated_icon {
+                background: $theme-primary-color;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                -webkit-transform: rotate(45deg);
+                color: white;
+                top: 10px;
+                padding-top: 6px;
+                font-size: 20px;
+                text-align: center;
+                i:before {
+                    -webkit-transform: rotate(-45deg);
+                }
+            }
+            .status_text {
+            	position: absolute;
+            	top: 5px;
+         		width: 50%;
+         		text-align: left;
+				margin-left: 10px;
+            }
+        }
+        .filter_ball {
+            right: 10px;
+            top: 5px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+    .conditions_wrapper {
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 5px;
+        .condition {
+            display: inline-block;
+            box-sizing: border-box;
+            float: left;
+            height: 5px;
+            background: $theme-primary-color;
+            width: 20%;
+            border-right: 1px solid white;
+            &:last-child {
+                border-right: 0px;
+            }
+        }
+    }
+    .team_selection_wrapper {
+        width: 99%;
+        & > div {
+            display: inline-block;
+            width: 49%;
+            float: left;
+            margin-left: 1%;
+            box-sizing: border-box;
+            .player_icon i {
+                display: block;
+                margin: 0 auto;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-size: 10px;
+                background-position: center center;
+                background-color: $theme-primary-color;
+                background-repeat: no-repeat;
+            }
+            span {
+                float: left;
+                font-size: 12px;
+                &:nth-child(1) {
+                    width: 19%;
+                }
+                &:nth-child(2) {
+                    width: 60%;
+                }
+                &:nth-child(3) {
+                    width: 20%;
+                    float: right;
+                }
+            }
+            .table_content {
+                height: 330px;
+            }
+        }
+        .current_team_wrapper {}
+        .roster_wrapper {
+            .table_content {
+                overflow: scroll;
+                .table_content_row {
+                    position: relative;
+                }
+            }
+        }
+    }
+    .save_squad_button {
+        margin-top: 20px;
+        width: 95%;
+        left: 2.5%;
+    }
+}

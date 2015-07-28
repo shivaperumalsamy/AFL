@@ -1,0 +1,21 @@
+.filter_modal_wrapper {
+	.filter_options_wrapper {
+		margin-top: 30%;
+
+		ul {
+			width: 90%;
+			margin: 0 auto;
+			li {
+				margin-top: 20px;
+				border-left-width: 0px;
+				border-right-width: 0px;
+			}
+		}
+	}
+
+	.filter_button {
+		width: 50%;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+}

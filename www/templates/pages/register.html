@@ -1,0 +1,22 @@
+<ion-view>
+    <span class="menu_button ball" ng-click="goBack()">
+        <i class="icon ion-home"></i>
+    </span>
+    <div class="page_wrapper register_wrapper">
+        <triangle with_avnet_logo></triangle>
+        <div class="general_form register_form_wrapper">
+            <form name="registerForm" ng-submit="registerFormSubmit(registerForm) " novalidate>
+                <ion-item class="item-input">
+                    <input type="text" name="username" placeholder="Username" ng-model="registerFormObject.username" required/>
+                </ion-item>
+                <ion-item class="item-input">
+                    <input type="text" name="password" placeholder="Password" ng-model="registerFormObject.password" required/>
+                </ion-item>
+                <ion-item class="item-input">
+                    <input type="text" name="confirmPassword" placeholder="Re-type Password" ng-model="registerFormObject.confirmPassword" required/>
+                </ion-item>
+                <button type="submit" class="button button-primary button-block">Register</button>
+            </form>
+        </div>
+    </div>
+</ion-view>
