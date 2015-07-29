@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+/*$theme-primary-color: #FF2E63;*/
+/*$theme-secondary-color: mediumpurple;*/
 body {
   font-family: "Open Sans", sans-serif; }
   body input,
@@ -9,7 +11,7 @@ body {
 .button-primary,
 .button-primary:active,
 .button-primary:hover {
-  background: #FF2E63;
+  background: blueviolet;
   color: white;
   border: 0px;
   text-transform: uppercase;
@@ -84,7 +86,7 @@ triangle {
   padding: 10px 0px;
   text-transform: uppercase;
   color: white;
-  background: #FF2E63;
+  background: blueviolet;
   text-align: center;
   font-weight: lighter;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); }
@@ -121,7 +123,7 @@ triangle {
 
 /*LEADER BOARD BANNER */
 .banner {
-  background: #FF2E63;
+  background: blueviolet;
   box-sizing: border-box;
   width: 95%;
   margin: 0 auto;
@@ -152,12 +154,12 @@ triangle {
 
 /*SIDE MENU*/
 ion-side-menu {
-  background: #FF2E63 !important; }
+  background: blueviolet !important; }
   ion-side-menu .item {
     border-color: white;
     border-collapse: collapse; }
   ion-side-menu .item-content {
-    background: #FF2E63 !important;
+    background: blueviolet !important;
     color: white;
     font-weight: lighter;
     text-transform: uppercase; }
@@ -181,7 +183,7 @@ ion-side-menu {
     padding: 10px 0px;
     text-transform: uppercase;
     color: white;
-    background: #FF2E63;
+    background: blueviolet;
     text-align: center;
     font-weight: lighter;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); }
@@ -303,7 +305,7 @@ ion-side-menu {
   border-radius: 50%;
   background-size: 10px;
   background-position: center center;
-  background-color: #FF2E63;
+  background-color: blueviolet;
   background-repeat: no-repeat;
   margin-left: 10x; }
 .profile_wrapper .current_squad_wrapper .table_content .table_content_row span:nth-child(1) {
@@ -329,13 +331,13 @@ ion-side-menu {
     top: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 40px solid #FF2E63; }
+    border-left: 40px solid blueviolet; }
   .profile_wrapper .recent_matches_wrapper .table_content_row:after {
     right: -1px;
     top: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-right: 40px solid #FF2E63; }
+    border-right: 40px solid blueviolet; }
   .profile_wrapper .recent_matches_wrapper .table_content_row .ball {
     width: 30px;
     height: 30px;
@@ -413,7 +415,7 @@ ion-side-menu {
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(3) {
       right: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon .rotated_icon {
-      background: #FF2E63;
+      background: blueviolet;
       display: inline-block;
       width: 30px;
       height: 30px;
@@ -449,7 +451,7 @@ ion-side-menu {
     box-sizing: border-box;
     float: left;
     height: 5px;
-    background: #FF2E63;
+    background: blueviolet;
     width: 20%;
     border-right: 1px solid white; }
     .squad_selection_wrapper .conditions_wrapper .condition:last-child {
@@ -470,7 +472,7 @@ ion-side-menu {
       border-radius: 50%;
       background-size: 10px;
       background-position: center center;
-      background-color: #FF2E63;
+      background-color: blueviolet;
       background-repeat: no-repeat; }
     .squad_selection_wrapper .team_selection_wrapper > div span {
       float: left;
@@ -484,10 +486,31 @@ ion-side-menu {
         float: right; }
     .squad_selection_wrapper .team_selection_wrapper > div .table_content {
       height: 330px; }
-  .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content {
-    overflow: scroll; }
-    .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content .table_content_row {
-      position: relative; }
+  .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content {
+    margin: 30px auto !important; }
+  .squad_selection_wrapper .team_selection_wrapper .roster_wrapper {
+            /* .table_content:after {
+				content: 'asdfasdfsfas';
+				position: absolute;
+				display: inline-block;
+				width: 100%;
+				height: 20px;
+				left: 0;
+				bottom: 0px;
+				background: blue;
+            }*/ }
+    .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] {
+      height: 20px;
+      text-align: center; }
+      .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] i:before {
+        font-size: 20px; }
+    .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content {
+      position: relative;
+      height: 330px;
+      overflow: scroll;
+      margin: 0 auto; }
+      .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content .table_content_row {
+        position: relative; }
 .squad_selection_wrapper .save_squad_button {
   margin-top: 20px;
   width: 95%;

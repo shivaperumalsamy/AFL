@@ -1,174 +1,178 @@
 <ion-view>
-    <div class="squad_selection_wrapper">
-        <div class="header squad_selection_header">
-            Squad Selection
-            <i class="icon ion-ios-arrow-back go_back_button" ng-click="goBack()"></i> 
-        </div>
-        <div class="header next_match_header">Next Match: Hurricanes Vs Superstars</div>
-        <div class="status_icons_wrapper">
-            <div class="status_icon">
-                <span class="rotated_icon">
+    <ion-content>
+        <div class="squad_selection_wrapper">
+            <div class="header squad_selection_header">
+                Squad Selection
+                <i class="icon ion-ios-arrow-back go_back_button" ng-click="goBack()"></i>
+            </div>
+            <div class="header next_match_header">Next Match: Hurricanes Vs Superstars</div>
+            <div class="status_icons_wrapper">
+                <div class="status_icon">
+                    <span class="rotated_icon">
 					<i class="icon ion-cash"></i> 
 				</span>
-                <span class="status_text"> $1000</span>
-            </div>
-            <div class="status_icon">
-                <span class="rotated_icon">
+                    <span class="status_text"> $1000</span>
+                </div>
+                <div class="status_icon">
+                    <span class="rotated_icon">
 					<i class="icon ion-arrow-swap"></i> 
 				</span>
-                <span class="status_text"> 10</span>
-            </div>
-
-
-            <span class="ball filter_ball" ng-click="showFilterModal()">
+                    <span class="status_text"> 10</span>
+                </div>
+                <span class="ball filter_ball" ng-click="showFilterModal()">
 				<i class="icon ion-funnel"></i> 
 			</span>
-            
-        </div>
-        <div class="conditions_wrapper">
-        	<span class="condition"></span>
-        	<span class="condition"></span>
-        	<span class="condition"></span>
-        	<span class="condition"></span>
-        	<span class="condition"></span>
-        </div>
-        <div class="team_selection_wrapper">
-            <div class="current_team_wrapper">
-                <div class="table_wrapper">
-                    <div class="table_header">Squad</div>
-                    <ul class="table_content">
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>asdfas</span>
-                            <span>476</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>adfsdf</span>
-                            <span>457</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>asdf</span>
-                            <span>457</span>
-                        </li>
-                        <li class="table_content_row hurricanes">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>dfghsd</span>
-                            <span>7456</span>
-                        </li>
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>fdhd</span>
-                            <span>567</span>
-                        </li>
-                        <li class="table_content_row superstars">
-                            <span class="player_icon"><i class="all_rounder"></i></span>
-                            <span>zxvx</span>
-                            <span>8657</span>
-                        </li>
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="all_rounder"></i></span>
-                            <span>ytjt</span>
-                            <span>7856</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="all_rounder"></i></span>
-                            <span>gdfshg</span>
-                            <span>578</span>
-                        </li>
-                        <li class="table_content_row superstars">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>gadfg</span>
-                            <span>2345</span>
-                        </li>
-                        <li class="table_content_row hurricanes">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>fddghds</span>
-                            <span>452</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>fddasdfghds</span>
-                            <span>3452</span>
-                        </li>
-                    </ul>
+            </div>
+            <div class="conditions_wrapper">
+                <span class="condition"></span>
+                <span class="condition"></span>
+                <span class="condition"></span>
+                <span class="condition"></span>
+                <span class="condition"></span>
+            </div>
+            <div class="team_selection_wrapper">
+                <div class="current_team_wrapper">
+                    <div class="table_wrapper">
+                        <div class="table_header">Squad</div>
+                        <ul class="table_content">
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>asdfas</span>
+                                <span>476</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>adfsdf</span>
+                                <span>457</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>asdf</span>
+                                <span>457</span>
+                            </li>
+                            <li class="table_content_row hurricanes">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>dfghsd</span>
+                                <span>7456</span>
+                            </li>
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>fdhd</span>
+                                <span>567</span>
+                            </li>
+                            <li class="table_content_row superstars">
+                                <span class="player_icon"><i class="all_rounder"></i></span>
+                                <span>zxvx</span>
+                                <span>8657</span>
+                            </li>
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="all_rounder"></i></span>
+                                <span>ytjt</span>
+                                <span>7856</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="all_rounder"></i></span>
+                                <span>gdfshg</span>
+                                <span>578</span>
+                            </li>
+                            <li class="table_content_row superstars">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>gadfg</span>
+                                <span>2345</span>
+                            </li>
+                            <li class="table_content_row hurricanes">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>fddghds</span>
+                                <span>452</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>fddasdfghds</span>
+                                <span>3452</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roster_wrapper">
+                    <div class="table_wrapper">
+                        <div class="table_header">Roster</div>
+                        <div class="scroll_up">
+                        	<i class="icon ion-ios-arrow-up"></i>
+                        </div>
+                        <ul class="table_content">
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>asdfas</span>
+                                <span>476</span>
+                            </li>
+                            <li class="table_content_row superstars">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>adfsdf</span>
+                                <span>457</span>
+                            </li>
+                            <li class="table_content_row superstars">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>asdf</span>
+                                <span>457</span>
+                            </li>
+                            <li class="table_content_row hurricanes">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>dfghsd</span>
+                                <span>74567</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>fdhd</span>
+                                <span>5678</span>
+                            </li>
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="batsman"></i></span>
+                                <span>zxvx</span>
+                                <span>8657</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>ytjt</span>
+                                <span>7856</span>
+                            </li>
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>gdfshg</span>
+                                <span>578</span>
+                            </li>
+                            <li class="table_content_row strikers">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>gadfg</span>
+                                <span>2345</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>fddghds</span>
+                                <span>452</span>
+                            </li>
+                            <li class="table_content_row hurricanes">
+                                <span class="player_icon"><i class="bowler"></i></span>
+                                <span>fddasdfghds</span>
+                                <span>3452</span>
+                            </li>
+                            <li class="table_content_row scorchers">
+                                <span class="player_icon"><i class="all-rounder"></i></span>
+                                <span>fddghds</span>
+                                <span>452</span>
+                            </li>
+                            <li class="table_content_row hurricanes">
+                                <span class="player_icon"><i class="all-rounder"></i></span>
+                                <span>fddasdfghds</span>
+                                <span>3452</span>
+                            </li>
+                        </ul>
+                        <div class="scroll_down">
+                        	<i class="icon ion-ios-arrow-down"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="roster_wrapper">
-                <div class="table_wrapper">
-                    <div class="table_header">Roster</div>
-                    <ul class="table_content">
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>asdfas</span>
-                            <span>476</span>
-                        </li>
-                        <li class="table_content_row superstars">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>adfsdf</span>
-                            <span>457</span>
-                        </li>
-                        <li class="table_content_row superstars">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>asdf</span>
-                            <span>457</span>
-                        </li>
-                        <li class="table_content_row hurricanes">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>dfghsd</span>
-                            <span>74567</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>fdhd</span>
-                            <span>5678</span>
-                        </li>
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="batsman"></i></span>
-                            <span>zxvx</span>
-                            <span>8657</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>ytjt</span>
-                            <span>7856</span>
-                        </li>
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>gdfshg</span>
-                            <span>578</span>
-                        </li>
-                        <li class="table_content_row strikers">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>gadfg</span>
-                            <span>2345</span>
-                        </li> 
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>fddghds</span>
-                            <span>452</span>
-                        </li>
-                        <li class="table_content_row hurricanes">
-                            <span class="player_icon"><i class="bowler"></i></span>
-                            <span>fddasdfghds</span>
-                            <span>3452</span>
-                        </li>
-                        <li class="table_content_row scorchers">
-                            <span class="player_icon"><i class="all-rounder"></i></span>
-                            <span>fddghds</span>
-                            <span>452</span>
-                        </li>
-                        <li class="table_content_row hurricanes">
-                            <span class="player_icon"><i class="all-rounder"></i></span>
-                            <span>fddasdfghds</span>
-                            <span>3452</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <button type="button" class="button button-primary button-block save_squad_button" ng-click="saveSquad()">Save Squad</button>
         </div>
-        <button type="button" class="button button-primary button-block save_squad_button" ng-click="saveSquad()">Save Squad</button>
-    </div>
+    </ion-content>
 </ion-view>
-

@@ -1,1 +1,8 @@
-controllers.controller('RegisterController', ['$scope', function($scope) {}]);
+controllers.controller('RegisterController', ['$scope', '$log', function($scope, $log) {
+
+
+	$scope.registerFormSubmit = function() {
+		
+	}
+
+}]);

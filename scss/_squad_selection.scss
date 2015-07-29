@@ -1,15 +1,15 @@
 .squad_selection_wrapper {
     .squad_selection_header {
-    	.go_back_button {
-			position: absolute;
-			display: inline-block;
-			width: 30px;
-			height: 30px;
-			top: 5px;
-			left: 5px;
-			font-size: 30px;
-			cursor: pointer;
-    	}
+        .go_back_button {
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            left: 5px;
+            font-size: 30px;
+            cursor: pointer;
+        }
     }
     .next_match_header {
         background: $theme-secondary-color;
@@ -39,7 +39,6 @@
             &:nth-child(3) {
                 right: 10px;
             }
-
             .rotated_icon {
                 background: $theme-primary-color;
                 display: inline-block;
@@ -56,11 +55,11 @@
                 }
             }
             .status_text {
-            	position: absolute;
-            	top: 5px;
-         		width: 50%;
-         		text-align: left;
-				margin-left: 10px;
+                position: absolute;
+                top: 5px;
+                width: 50%;
+                text-align: left;
+                margin-left: 10px;
             }
         }
         .filter_ball {
@@ -128,14 +127,40 @@
                 height: 330px;
             }
         }
-        .current_team_wrapper {}
-        .roster_wrapper {
+        .current_team_wrapper {
             .table_content {
+                margin: 30px auto !important;
+            }
+        }
+        .roster_wrapper {
+            div[class^='scroll'] {
+                height: 20px;
+                text-align: center;
+                i:before {
+                    font-size: 20px;
+                }
+            }
+            .scroll_up {}
+            .scroll_down {}
+            .table_content {
+                position: relative;
+                height: 330px;
                 overflow: scroll;
+                margin: 0 auto;
                 .table_content_row {
                     position: relative;
                 }
             }
+            /* .table_content:after {
+				content: 'asdfasdfsfas';
+				position: absolute;
+				display: inline-block;
+				width: 100%;
+				height: 20px;
+				left: 0;
+				bottom: 0px;
+				background: blue;
+            }*/
         }
     }
     .save_squad_button {

@@ -1,7 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
-$theme-primary-color: #FF2E63;
+/*$theme-primary-color: #FF2E63;*/
+$theme-primary-color: blueviolet;
 $theme-secondary-color: #50D2C1;
+/*$theme-secondary-color: mediumpurple;*/
 $avnet-logo: '../img/avnet_logo.png';
 $apl-logo: '../img/apl_logo.png';
 $font-family: 'Open Sans';
@@ -11,6 +13,7 @@ body {
     input::-webkit-placeholder {
         font-family: $font-family, sans-serif;
     }
+
 }
 
 .button-primary,
