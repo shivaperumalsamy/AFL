@@ -1,4 +1,4 @@
-controllers.controller('CreateTeamController', ['$scope', '$state', '$log', '$ionicSideMenuDelegate', function($scope, $state, $log, $ionicSideMenuDelegate) {
+controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$state', '$log', '$ionicSideMenuDelegate', AFL.PAGES.CREATE_TEAM.factory, function($scope, $state, $log, $ionicSideMenuDelegate, CreateTeamFactory) {
 
 	$scope.createTeamFormSubmit = function(createTeamForm) {
 		$log.debug('CreateTeamController.createTeamForm start');

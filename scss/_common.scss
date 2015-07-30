@@ -1,9 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
 /*$theme-primary-color: #FF2E63;*/
+
 $theme-primary-color: blueviolet;
 $theme-secondary-color: #50D2C1;
+
 /*$theme-secondary-color: mediumpurple;*/
+
 $avnet-logo: '../img/avnet_logo.png';
 $apl-logo: '../img/apl_logo.png';
 $font-family: 'Open Sans';
@@ -13,7 +17,6 @@ body {
     input::-webkit-placeholder {
         font-family: $font-family, sans-serif;
     }
-
 }
 
 .button-primary,
@@ -152,6 +155,43 @@ triangle {
 }
 
 
+/*POPUP*/
+
+.popup-head {
+    background: $theme-primary-color;
+    .popup-title {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: lighter;
+    }
+}
+
+.popup-body {
+    text-align: center;
+}
+
+.popup-buttons {
+    .button {
+        background-color: $theme-primary-color;
+        border-width: 0px;
+    }
+}
+
+
+/*LOADING SPINNER*/
+
+.loading {
+    svg {
+        width: 50px;
+        height: 50px;
+    }
+    .spinner {
+        stroke: white;
+    }
+}
+
+
 /*LEADER BOARD BANNER */
 
 .banner {
@@ -269,4 +309,15 @@ ion-side-menu {
 
 .superstars {
     border-right: 2px solid darkgreen;
+}
+
+
+/*ERROR MESSAGES*/
+
+.error_message {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 48%;
+    color: orangered;
+    text-align: center;
 }

@@ -2,12 +2,16 @@
     <div class="page_wrapper login_wrapper">
         <triangle with_avnet_logo></triangle>
         <div class="login_form_wrapper general_form">
+            <div class="login_error_messages">
+                <span class="error_message" ng-show="(!loginForm.username.$pristine && loginForm.username.$invalid) || (loginForm.$submitted && loginForm.username.$invalid)">{{ AFL_MESSAGES.USERNAME_REQUIRED }}</span>
+                <span class="error_message" ng-show="(!loginForm.password.$pristine && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)">{{ AFL_MESSAGES.PASSWORD_REQUIRED }}</span>
+            </div>
             <form name="loginForm" ng-submit="loginFormSubmit(loginForm) " novalidate>
                 <ion-item class="item-input">
                     <input type="text" name="username" placeholder="Username" ng-model="loginFormObject.username" required/>
                 </ion-item>
                 <ion-item class="item-input">
-                    <input type="text" name="password" placeholder="Password" ng-model="loginFormObject.password" required/>
+                    <input type="password" name="password" placeholder="Password" ng-model="loginFormObject.password" required/>
                 </ion-item>
                 <button type="submit" class="button button-primary button-block">Sign in</button>
             </form>

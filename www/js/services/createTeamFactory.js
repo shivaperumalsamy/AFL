@@ -1,1 +1,5 @@
-services.factory('CreateTeamFactory', [function() {}]);
+services.factory(AFL.PAGES.CREATE_TEAM.factory, [function() {
+	return {
+
+	};
+}]);

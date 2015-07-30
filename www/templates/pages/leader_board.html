@@ -13,56 +13,12 @@
                     <span>Points</span>
                 </div>
                 <ul class="table_content board_content list_card">
-                    <li class="table_content_row board_content_row">
-                        <span>1</span>
-                        <span>asdfsa</span>
-                        <span>1234</span>
+                    <li class="table_content_row board_content_row" ng-repeat="team in leaderBoard">
+                        <span>{{ $index + 1 }}</span>
+                        <span>{{ team.teamName}}</span>
+                        <span>{{ team.points}}</span>
                     </li>
-                    <li class="table_content_row board_content_row">
-                        <span>2</span>
-                        <span>asdf</span>
-                        <span>14</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>3</span>
-                        <span>asdfdsa</span>
-                        <span>123</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>4</span>
-                        <span>sdfas</span>
-                        <span>1342</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>5</span>
-                        <span>sdfas</span>
-                        <span>231</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>6</span>
-                        <span>asfa</span>
-                        <span>54</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>7</span>
-                        <span>safdas</span>
-                        <span>5463</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>8</span>
-                        <span>gkjhg</span>
-                        <span>6763</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>9</span>
-                        <span>sdfas</span>
-                        <span>67</span>
-                    </li>
-                    <li class="table_content_row board_content_row">
-                        <span>10</span>
-                        <span>sadfas</span>
-                        <span>6745</span>
-                    </li>
+
                 </ul>
             </div>
         </div>

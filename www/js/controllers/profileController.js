@@ -1,4 +1,4 @@
-controllers.controller('ProfileController', ['$scope', '$state', '$log', function($scope, $state, $log) {
+controllers.controller(AFL.PAGES.PROFILE.controller, ['$scope', '$state', '$log', AFL.PAGES.PROFILE.factory, function($scope, $state, $log, ProfileFactory) {
 
 	$scope.getStarted = function() {
 		$log.debug('ProfileController.getStarted start');

@@ -121,6 +121,29 @@ triangle {
 .all_rounder {
   background-image: url("../img/icons/all_rounder.png"); }
 
+/*POPUP*/
+.popup-head {
+  background: blueviolet; }
+  .popup-head .popup-title {
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter; }
+
+.popup-body {
+  text-align: center; }
+
+.popup-buttons .button {
+  background-color: blueviolet;
+  border-width: 0px; }
+
+/*LOADING SPINNER*/
+.loading svg {
+  width: 50px;
+  height: 50px; }
+.loading .spinner {
+  stroke: white; }
+
 /*LEADER BOARD BANNER */
 .banner {
   background: blueviolet;
@@ -213,6 +236,14 @@ ion-side-menu {
 
 .superstars {
   border-right: 2px solid darkgreen; }
+
+/*ERROR MESSAGES*/
+.error_message {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 48%;
+  color: orangered;
+  text-align: center; }
 
 .login_wrapper .sign_up_link {
   display: block;
