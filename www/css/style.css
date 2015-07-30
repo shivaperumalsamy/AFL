@@ -265,6 +265,7 @@ ion-side-menu {
     position: static;
     margin: 0 auto;
     margin-top: 50px;
+    margin-bottom: 5px;
     width: 75px;
     height: 75px;
     font-size: 70px;

@@ -57,7 +57,7 @@
                     <i class="icon ion-ribbon-a"></i>
                     Leaderboard
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/login" class="item-icon-left" ng-click="logout()">
+                <ion-item nav-clear menu-close href="#/login" class="item-icon-left" ng-click="logout()" ng-show="currentUser.isLoggedIn">
                     <i class="icon ion-log-out"></i>
                     Log Out
                 </ion-item>

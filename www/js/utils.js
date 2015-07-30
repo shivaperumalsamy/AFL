@@ -22,8 +22,12 @@ utils.provider('$utils', [function() {
                         $log.debug("$utils.callBackend start");
                         var deferred = $q.defer();
 
+                        var params = requestData ? requestData : {};
+
                         if (requestType === "GET") {
-                            $http.get(AFL.BACK_END.rootURL + methodName).success(function(response) {
+                            $http.get(AFL.BACK_END.rootURL + methodName, {
+                                params : params
+                            }).success(function(response) {
                                 $log.debug(response);
                                 deferred.resolve(response);
                             }).error(function(error) {
@@ -31,7 +35,7 @@ utils.provider('$utils', [function() {
                                 deferred.reject();
                             });
                         } else if (requestType === "POST") {
-                            var params = requestData ? requestData : {};
+
                             $http.post(AFL.BACK_END.rootUrl + methodName, params).success(function(response) {
                                 deferred.resolve(response);
                             }).error(function(error) {

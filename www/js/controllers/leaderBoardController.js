@@ -14,7 +14,6 @@ controllers.controller(AFL.PAGES.LEADER_BOARD.controller, ['$scope', '$rootScope
 			$utils.showAlert("Sorry!!!", "Leader Board Could not be retrieved, Please try again");
 		});
 
-
 		$log.debug("LeaderBoardController.beforeEnter end");
 	});
 
