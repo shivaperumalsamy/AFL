@@ -6,3 +6,4 @@ platforms/
 plugins/
 .sass-cache/
 .bowerrc
+.idea/

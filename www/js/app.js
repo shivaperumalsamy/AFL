@@ -19,11 +19,11 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
 
             $rootScope.toggleLeft = function() {
                 $ionicSideMenuDelegate.toggleLeft();
-            }
+            };
 
             $rootScope.goBack = function() {
                 $ionicHistory.goBack();
-            }
+            };
 
             $rootScope.currentUser = $utils.localStorage.getObject(AFL.CURRENT_USER);
 
