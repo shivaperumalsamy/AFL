@@ -1,4 +1,4 @@
-controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$state', '$ionicSideMenuDelegate', '$utils', '$log', AFL.PAGES.CREATE_TEAM.factory, function($scope, $state, $ionicSideMenuDelegate, $utils, $log, CreateTeamFactory) {
+controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$rootScope', '$state', '$ionicSideMenuDelegate', '$utils', '$log', AFL.PAGES.CREATE_TEAM.factory, function($scope, $rootScope, $state, $ionicSideMenuDelegate, $utils, $log, CreateTeamFactory) {
 
     $scope.createTeamFormObject = {
         teamname: ''
@@ -11,15 +11,18 @@ controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$state', '$
         if (createTeamForm.$valid) {
             $utils.showSpinner();
             CreateTeamFactory.createFantasyTeam($scope.createTeamFormObject).then(function(response) {
+                $utils.hideSpinner();
                 if (response.teamCreated) {
                     $utils.showAlert("Success", "Team Created successfully.");
+                    $rootScope.currentUser.teamId = response.teamId;
+
+                    $utils.localStorage.setObject(AFL.CURRENT_USER, $rootScope.currentUser);
                     $state.go(AFL.PAGES.PROFILE.name, {
                         teamId : response.teamId
                     });
                 } else {
                 	$utils.showAlert("Sorry", "Team with the same name already exists.");
                 }
-                $utils.hideSpinner();
             }, function() {
                 $utils.showAlert("Error", "Some error occurred, please try again.");
                 $utils.hideSpinner();

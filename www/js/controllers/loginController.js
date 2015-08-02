@@ -20,7 +20,9 @@ controllers.controller(AFL.PAGES.LOGIN.controller, ['$scope', '$state', '$rootSc
 		if ($rootScope.currentUser && $rootScope.currentUser.isLoggedIn) {
 			$log.debug("LoginController.beforeEnter: User is already logged in");
 			$ionicHistory.clearHistory();
-			$state.go(AFL.PAGES.PROFILE.name);
+			$state.go(AFL.PAGES.PROFILE.name, {
+				teamId : $rootScope.currentUser.teamId
+			});
 		}
 		
 		$log.debug('LoginController.beforeEnter end');
@@ -36,11 +38,12 @@ controllers.controller(AFL.PAGES.LOGIN.controller, ['$scope', '$state', '$rootSc
 					$rootScope.currentUser.isLoggedIn = true;
 					$rootScope.currentUser.userId = response.user.userId;
 					$rootScope.currentUser.username = response.user.userName;
-            
+
+					var teamId = (response.user.teamsOwned.length > 0) ? response.user.teamsOwned[0].teamId : AFL.NON_EXISTENT;
+            		$rootScope.currentUser.teamId = teamId;
 					$utils.localStorage.setObject(AFL.CURRENT_USER, $rootScope.currentUser);
 					$utils.hideSpinner();
 					
-					var teamId = (response.user.teamsOwned.length > 0) ? response.user.teamsOwned[0].teamId : AFL.NON_EXISTENT;
 					$state.go(AFL.PAGES.PROFILE.name, {
 						teamId : teamId
 					});

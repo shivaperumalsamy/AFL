@@ -11,7 +11,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     $scope.conditions = {
     };
 
-    $ionicModal.fromTemplateUrl('../templates/modals/filter_modal.html', {
+    $ionicModal.fromTemplateUrl('templates/modals/filter_modal.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function(modal) {
