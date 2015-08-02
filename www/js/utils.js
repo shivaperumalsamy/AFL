@@ -61,6 +61,15 @@ utils.provider('$utils', [function() {
                     },
                     hideSpinner: function() {
                     	$ionicLoading.hide();
+                    },
+                    isPlayerInSelectedTeam : function(player, teamId) {
+                        return (teamId == AFL.NON_EXISTENT) ? true : (player.playerAplTeamId == teamId);
+                    },
+                    isPlayerOfSelectedType : function(player, playerTypeId) {
+                        return (playerTypeId == AFL.NON_EXISTENT) ? true : (player.playerTypeId == playerTypeId);
+                    },
+                    isImpactPlayer : function(player, impactPlayer) {
+                        return !impactPlayer ? true : (player.isImpact ? true : false);
                     }
                 };
             }

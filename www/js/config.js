@@ -13,6 +13,9 @@ var AFL = {
         MESSAGES: "afl.messages",
         UTILS: "afl.utils"
     },
+    filters : {
+        ROSTER_FILTER : "rosterfilter"
+    },
     PAGES: {
         SIDE_MENU: {
             controller: 'SideMenuController',

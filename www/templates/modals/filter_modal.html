@@ -9,7 +9,7 @@
                             Select Team
                         </div>
                         <select ng-model="filterObject.teamId">
-                            <option value="-1">Select Team</option>
+                            <option value="-1">All Teams</option>
                             <option ng-repeat="team in fantasyTeams" value="{{ team.teamId }}">{{ team.teamName }}</option>
                         </select>
                     </li>
@@ -17,8 +17,8 @@
                         <div class="input-label">
                             Select Player Type
                         </div>
-                        <select no-model="filterObject.playerTypeId">
-                            <option value="-1">Select Player Type</option>
+                        <select ng-model="filterObject.playerTypeId">
+                            <option value="-1">All Player Types</option>
                             <option ng-repeat="playerType in playerTypes" value="{{ playerType.typeId }}">{{ playerType.typeName }}</option>
                         </select>
                     </li>

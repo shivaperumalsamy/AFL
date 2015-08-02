@@ -19,6 +19,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     });
 
     $scope.showFilterModal = function() {
+        console.dir($scope.filterObject);
         $scope.modal.show();
     };
     $scope.hideFilterModal = function() {
@@ -26,32 +27,33 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     };
 
     $scope.$on('modal.shown', function(event, modal) {
-        $utils.showSpinner();
-
-        $scope.getAllAPLTeams();
+        if($scope.fantasyTeams.length == 0) {
+            $utils.showSpinner();
+        }
+        if($scope.playerTypes.length == 0) {
+            $scope.getAllAPLTeams();
+        }
     });
 
     $scope.$on('$ionicView.beforeEnter', function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".beforeEnter : start");
         console.dir($stateParams);
         var currentTeam = $stateParams.currentTeam;
-        console.log("CURRENT TEAM");
-        console.dir(currentTeam);
-        $scope.rosterPageNumber = 1;
         
-        // if(action === AFL.CREATE) {
-        //    $scope.squadSelectionObject.teamName = $stateParams.teamName
-        // }
+        $scope.rosterPageNumber = 1;
         
         $scope.getAllAPLPlayers();
 
-        $scope.filterObject.teamId = -1;
-        $scope.filterObject.playerType = -1;
+        $scope.filterObject.teamId = AFL.NON_EXISTENT;
+        $scope.filterObject.playerTypeId = AFL.NON_EXISTENT;
         $scope.filterObject.impactPlayer = {
             isChecked : false,
             text : "Impact Player"
         };
 
+        $scope.fillerHeight = "0px";
+
+        global = $scope.filterObject;
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".beforeEnter : end");
     })
 
@@ -89,9 +91,8 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
             $scope.roster = players;
             $scope.filteredRoster = players;
 
-            var filler = angular.element(document.querySelector('.roster_wrapper .filler'));
             var fillerHeight = (11 - (players.length % 11)) * 30;
-            filler.css('height', fillerHeight + 'px')
+            $scope.fillerHeight = fillerHeight + 'px';
         }, function() {
             $utils.showAlert("Sorry!!!", "Data could not be fetched. Please try again.");
         });
@@ -132,6 +133,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 	$scope.saveFilter = function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveFilter : start");
 		$scope.hideFilterModal();
+        console.log($scope.filterObject.teamId + " " + $scope.filterObject.playerTypeId);
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveFilter : end");
 	};
 

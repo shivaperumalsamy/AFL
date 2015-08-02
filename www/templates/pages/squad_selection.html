@@ -53,12 +53,12 @@
                             <i class="icon ion-ios-arrow-up"></i>
                         </div>
                         <ul class="table_content">
-                            <li class="table_content_row scorchers" ng-repeat="player in filteredRoster" on-double-tap="addPlayerToSquad()">
+                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster | rosterfilter:this" on-double-tap="addPlayerToSquad()">
                                 <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span>{{ player.totalPoints }}</span>
                             </li>
-                            <li class="filler">
+                            <li class="filler" ng-style="{ height : fillerHeight }">
                             </li>
                         </ul>
                         <div class="scroll_down" ng-class="(filteredRoster.length > (filteredRoster * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
