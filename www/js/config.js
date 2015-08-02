@@ -48,7 +48,7 @@ var AFL = {
         },
         SQUAD_SELECTION: {
             name: 'squad_selection',
-            url: '/squad_selection',
+            url: '/squad_selection/:currentTeam',
             templateUrl: 'templates/pages/squad_selection.html',
             controller: 'SquadSelectionController',
             factory: 'SquadSelectionFactory'

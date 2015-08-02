@@ -16,13 +16,6 @@ services.factory(AFL.PAGES.LOGIN.factory, ['$q', '$utils', '$log', function($q, 
 
                 if (response.type === AFL.BACK_END.ResponseType.SUCCESS) {
                     var user = response.data;
-                    if (!user.teamsOwned[0].teamId) {
-                        $log.debug(AFL.PAGES.LOGIN.factory + ".login : User does not have a team");
-                        user.teamsOwned = [{
-                            teamId: AFL.NON_EXISTENT,
-                            teamName: ""
-                        }];
-                    }
                     deferred.resolve({
                         loginSuccess: true,
                         user: user

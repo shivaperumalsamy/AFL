@@ -32,7 +32,7 @@ services.factory(AFL.PAGES.PROFILE.factory, ['$q', '$rootScope', '$utils', '$log
                 teamId: teamId
             }).then(function(response) {
                 if (response.type === AFL.BACK_END.ResponseType.SUCCESS) {
-                    var currentSquad = response.teamDetails;
+                    var currentSquad = response.data.teamDetails;
                     deferred.resolve(currentSquad);
                 } else {
                     $log.debug(response.message);

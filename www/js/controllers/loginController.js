@@ -40,8 +40,9 @@ controllers.controller(AFL.PAGES.LOGIN.controller, ['$scope', '$state', '$rootSc
 					$utils.localStorage.setObject(AFL.CURRENT_USER, $rootScope.currentUser);
 					$utils.hideSpinner();
 					
+					var teamId = (response.user.teamsOwned.length > 0) ? response.user.teamsOwned[0].teamId : AFL.NON_EXISTENT;
 					$state.go(AFL.PAGES.PROFILE.name, {
-						teamId : response.user.teamsOwned[0].teamId
+						teamId : teamId
 					});
 				}
 				else {

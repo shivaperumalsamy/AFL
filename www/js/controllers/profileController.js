@@ -7,7 +7,7 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : start");
         var teamId = $stateParams.teamId;
 
-        if (teamId === AFL.NON_EXISTENT) {
+        if (teamId == AFL.NON_EXISTENT) {
         	$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team does not exist");
             $scope.userTeamExists = false;
         } else {
@@ -37,6 +37,7 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $utils.showSpinner();
         ProfileFactory.getUserFantasyTeam(teamId).then(function(currentTeam) {
             $scope.currentTeam = currentTeam;
+            console.log($scope.currentTeam.length);
             $utils.hideSpinner();
         }, function() {
             $utils.hideSpinner();
@@ -62,5 +63,15 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : start");
         $state.go(AFL.PAGES.SQUAD_SELECTION.name);
         $log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : end");
+    };
+
+    $scope.editSquad = function() {
+        $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : start");
+
+        $state.go(AFL.PAGES.SQUAD_SELECTION.name, {
+            currentTeam : JSON.stringify($scope.currentTeam)
+        });
+
+        $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : end");
     };
 }]);

@@ -18,9 +18,14 @@ services.factory(AFL.PAGES.CREATE_TEAM.factory, ['$rootScope', '$q', '$utils', '
                         teamId: response.data.teamDetails.teamId
                     });
                 } else {
-                    deferred.resolve({
-                        teamCreated: true
-                    });
+                    if (response.error.errorCode == 500) {
+                        deferred.resolve({
+                            teamCreated: false
+                        });
+                    }
+                    else {
+                        deferred.reject();
+                    }
                 }
             }, function(error) {
                 $log.debug(AFL.PAGES.CREATE_TEAM.factory + ".getFantasyLeaderBoard : Error while contacting BACK_END");

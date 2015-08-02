@@ -13,8 +13,14 @@ services.factory(AFL.PAGES.REGISTER.factory, ['$q', '$utils', '$log', function($
 						deferred.resolve(true);
 					}
 					else {
-						deferred.reject();
+						if(response.error.errorCode == 500) {
+							deferred.resolve(false);
+						}
+						else {
+							deferred.reject();
+						}
 					}
+
 				},
 				function() {
 					$log.debug(AFL.PAGES.REGISTER.factory + ".getFantasyLeaderBoard : Error while contacting BACK_END");

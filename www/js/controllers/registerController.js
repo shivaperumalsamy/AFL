@@ -14,13 +14,18 @@ controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '
 	$scope.registerFormSubmit = function(registerForm) {
 		$log.debug('RegisterController.registerFormSubmit start');
 
-
 		if(registerForm.$valid && ($scope.registerFormObject.password === $scope.registerFormObject.confirmPassword)) {
 			$utils.showSpinner();
 			RegisterFactory.registerFormSubmit($scope.registerFormObject).then(function(response) {
 				$utils.hideSpinner();
-				$utils.showAlert("Success", "The account has been created successfully. You will now be taken to the login page.");
-				$ionicHistory.goBack();
+				if(response) {
+					$utils.showAlert("Success", "The account has been created successfully. You will now be taken to the login page.");
+					$ionicHistory.goBack();
+				}
+				else {
+					$utils.showAlert("Error", "Username already exists. Choose a different one.");
+				}
+
 			}, function() {
 				$utils.showAlert("Error", "Some error occurred. Please try again.");
 				$utils.hideSpinner();

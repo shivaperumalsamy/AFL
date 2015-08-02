@@ -2,6 +2,9 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
     $scope.filterObject = {};
 
+    $scope.currentTeam = [];
+    $scope.roster = [];
+    $scope.filteredRoster = [];
     $scope.fantasyTeams = [];
     $scope.playerTypes = [];
 
@@ -30,13 +33,16 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
     $scope.$on('$ionicView.beforeEnter', function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".beforeEnter : start");
-        //var action = $stateParams.action;
-        //$scope.rosterPageNumber = 1;
-        //
-        //if(action === AFL.CREATE) {
+        console.dir($stateParams);
+        var currentTeam = $stateParams.currentTeam;
+        console.log("CURRENT TEAM");
+        console.dir(currentTeam);
+        $scope.rosterPageNumber = 1;
+        
+        // if(action === AFL.CREATE) {
         //    $scope.squadSelectionObject.teamName = $stateParams.teamName
-        //}
-        //
+        // }
+        
         $scope.getAllAPLPlayers();
 
         $scope.filterObject.teamId = -1;
@@ -64,7 +70,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     $scope.showNextPage = function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : start");
 
-        if($scope.roster.length > ($scope.rosterPageNumber * 11)) {
+        if($scope.filteredRoster.length > ($scope.rosterPageNumber * 11)) {
             var rosterContainer = document.querySelector('.roster_wrapper .table_content');
             var scrollTop = rosterContainer.scrollTop + rosterContainer.offsetHeight;
             $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : scrollTop : " + scrollTop);
@@ -81,6 +87,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".getAllAPLPlayers : start");
         SquadSelectionFactory.getAllAPLPlayers().then(function(players) {
             $scope.roster = players;
+            $scope.filteredRoster = players;
 
             var filler = angular.element(document.querySelector('.roster_wrapper .filler'));
             var fillerHeight = (11 - (players.length % 11)) * 30;
@@ -115,7 +122,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     };
 
     $scope.addPlayerToSquad = function() {
-    alert('player added to squad');
+        alert('player added to squad');
     };
 
     $scope.removePlayerFromSquad = function() {

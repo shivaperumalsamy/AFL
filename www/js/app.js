@@ -54,7 +54,10 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
             .state(AFL.PAGES.SQUAD_SELECTION.name, {
                 url: AFL.PAGES.SQUAD_SELECTION.url,
                 templateUrl: AFL.PAGES.SQUAD_SELECTION.templateUrl,
-                controller: AFL.PAGES.SQUAD_SELECTION.controller
+                controller: AFL.PAGES.SQUAD_SELECTION.controller,
+                params : {
+                    currentSquad : []
+                }
             })
             .state(AFL.PAGES.REGISTER.name, {
                 url: AFL.PAGES.REGISTER.url,

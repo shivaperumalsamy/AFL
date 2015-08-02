@@ -11,9 +11,8 @@ controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$state', '$
         if (createTeamForm.$valid) {
             $utils.showSpinner();
             CreateTeamFactory.createFantasyTeam($scope.createTeamFormObject).then(function(response) {
-                $utils.showAlert("Success", "Team Created successfully.");
-
                 if (response.teamCreated) {
+                    $utils.showAlert("Success", "Team Created successfully.");
                     $state.go(AFL.PAGES.PROFILE.name, {
                         teamId : response.teamId
                     });
@@ -21,7 +20,6 @@ controllers.controller(AFL.PAGES.CREATE_TEAM.controller, ['$scope', '$state', '$
                 	$utils.showAlert("Sorry", "Team with the same name already exists.");
                 }
                 $utils.hideSpinner();
-
             }, function() {
                 $utils.showAlert("Error", "Some error occurred, please try again.");
                 $utils.hideSpinner();

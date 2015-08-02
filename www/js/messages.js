@@ -3,8 +3,5 @@ messages.constant(AFL.messagesConstantName, {
 	USERNAME_REQUIRED : "Username is required",
 	PASSWORD_REQUIRED : "Password is required",
 	PASSWORDS_DO_NOT_MATCH : "Passwords do not match",
-	register : {
-		
-
-	}
+	NO_PLAYERS_SELECTED : "No Players have been selected"
 });

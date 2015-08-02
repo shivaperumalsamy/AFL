@@ -22,10 +22,10 @@
             </div>
             <div class="table_wrapper current_squad_wrapper" ng-show="userTeamExists">
                 <div class="get_started_message">
-                <div class="table_header" ui-sref="squad_selection">Squad
+                <div class="table_header" ng-click="editSquad()">Squad
                     <i class="ion-edit"></i>
                 </div>
-                <ul class="table_content">
+                <ul class="table_content" ng-show="currentTeam.length > 0">
                     <li class="table_content_row">
                         <span class="player_icon"><i class="batsman"></i></span>
                         <span>asdfas</span>
@@ -82,6 +82,9 @@
                         <span>34523</span>
                     </li>
                 </ul>
+                <div class="message" ng-show="currentTeam.length == 0">
+                    {{ AFL_MESSAGES.NO_PLAYERS_SELECTED }}
+                </div>
             </div>
             <div class="table_wrapper recent_matches_wrapper" ng-show="userProfile.teams.length > 0">
                 <div class="get_started_message">>

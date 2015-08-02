@@ -10,7 +10,7 @@ services.factory(AFL.PAGES.SQUAD_SELECTION.factory, ['$q', '$utils', '$log', fun
                         var players = response.data.players;
 
                         players.forEach(function (element, index, array) {
-                            element.playerType = AFL.PLAYER_TYPE_CLASSES[element.player];
+                            element.playerType = AFL.PLAYER_TYPE_CLASSES[element.playerTypeId];
                             //element.teamName = AFL.TEAM_CLASSES[element.teamId];
                         });
                         deferred.resolve(players);
