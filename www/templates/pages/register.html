@@ -6,13 +6,13 @@
         <triangle with_avnet_logo></triangle>
         <div class="general_form register_form_wrapper">
             <div class="register_error_messages">
-                <span class="error_message"ng-show="(!registerForm.username.$pristine && registerForm.username.$invalid) || (registerForm.$submitted && registerForm.username.$invalid)">{{ AFL_MESSAGES.USERNAME_REQUIRED }}</span>
+                <span class="error_message" ng-show="(registerForm.$submitted && registerForm.useremail.$invalid) || registerForm.useremail.$error.email">{{ AFL_MESSAGES.EMAIL_REQUIRED }}</span>
                 <span class="error_message" ng-show="(!registerForm.password.$pristine && registerForm.password.$invalid) || (registerForm.$submitted && registerForm.password.$invalid)">{{ AFL_MESSAGES.PASSWORD_REQUIRED }}</span>
                 <span class="error_message" ng-show="(registerForm.password.$valid && (!registerForm.password.$pristine && !registerForm.confirmPassword.$pristine && !(registerForm.password.$viewValue == registerForm.confirmPassword.$viewValue))) || (registerForm.$submitted && registerForm.password.$valid && !(registerForm.password.$viewValue == registerForm.confirmPassword.$viewValue))">{{ AFL_MESSAGES.PASSWORDS_DO_NOT_MATCH }}</span>
             </div>
             <form name="registerForm" ng-submit="registerFormSubmit(registerForm) " novalidate>
                 <ion-item class="item-input">
-                    <input type="text" name="username" placeholder="Username" ng-model="registerFormObject.username" required/>
+                   <input type="email" ng-model="registerFormObject.useremail" placeholder="Avnet E-Mail" avnet-email name="useremail" required/>
                 </ion-item>
                 <ion-item class="item-input">
                     <input type="text" name="password" placeholder="Password" ng-model="registerFormObject.password" required/>

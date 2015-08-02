@@ -2,6 +2,9 @@ var AFL = {
     appName: "afl",
     messagesConstantName: "AFL_MESSAGES",
     CURRENT_USER: "CURRENT_USER",
+    CREATE : "create",
+    EDIT : "edit",
+    NON_EXISTENT : -1,
     moduleNames: {
         CONTROLLERS: "afl.controllers",
         SERVICES: "afl.services",
@@ -38,7 +41,7 @@ var AFL = {
         },
         PROFILE: {
             name: 'profile',
-            url: '/profile',
+            url: '/profile/:teamId',
             templateUrl: 'templates/pages/profile.html',
             controller: 'ProfileController',
             factory: 'ProfileFactory'
@@ -62,7 +65,14 @@ var AFL = {
         rootURL: "http://aplfantasy.herokuapp.com/",
         MethodNames: {
             getFantasyLeaderBoard: "getFantasyLeaderBoard",
-            getUserProfile: "getUserProfile"
+            getUserTeamProfile: "getUserTeamProfile",
+            getAllAPLPlayers : "getAllAPLPlayers",
+            getAllAPLTeams : "getAllAPLTeams",
+            getAllPlayerTypes : "getAllPlayerTypes",
+            createFantasyUser : "createFantasyUser",
+            createFantasyTeam : "createFantasyTeam",
+            loginUser : "loginUser",
+            getUserFantasyTeam : "getUserFantasyTeam"
         },
         RequestType: {
             GET: "GET",
@@ -72,6 +82,17 @@ var AFL = {
             SUCCESS: "success",
             ERROR: "error"
         }
+    },
+    PLAYER_TYPE_CLASSES : {
+        1 : "batsman",
+        2 : "bowler",
+        3 : "all_rounder"
+    },
+    TEAM_CLASSES : {
+        1 : "hurricanes",
+        2 : "superstars",
+        3 : "strikers",
+        4 : "scorchers"
     }
 };
 

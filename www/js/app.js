@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNames.SERVICES, AFL.moduleNames.DIRECTIVES, AFL.moduleNames.FILTERS, AFL.moduleNames.MESSAGES, AFL.moduleNames.UTILS])
 
-.run(['$ionicPlatform', '$rootScope', '$ionicSideMenuDelegate', '$ionicHistory', 'AFL_MESSAGES', '$utils', '$log', function($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $ionicHistory, AFL_MESSAGES, $utils, $log) {
+.run(['$ionicPlatform', '$rootScope', '$ionicSideMenuDelegate', '$ionicHistory', '$ionicConfig', 'AFL_MESSAGES', '$utils', '$log', function($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $ionicHistory, $ionicConfig, AFL_MESSAGES, $utils, $log) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -16,6 +16,8 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
                 StatusBar.styleDefault();
             }
 
+            
+            $ionicConfig.views.swipeBackEnabled(false);
 
             $rootScope.toggleLeft = function() {
                 $ionicSideMenuDelegate.toggleLeft();
@@ -24,20 +26,10 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
             $rootScope.goBack = function() {
                 $ionicHistory.goBack();
             };
-
-            $rootScope.currentUser = $utils.localStorage.getObject(AFL.CURRENT_USER);
-
-            if ($rootScope.currentUser === null) {
-                $rootScope.currentUser = {
-                    isLoggedIn : false
-                };
-                $utils.localStorage.setObject(AFL.CURRENT_USER, $rootScope.currentUser);
-            } 
-
             $rootScope.AFL_MESSAGES = AFL_MESSAGES;
         });
     }])
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$logProvider', function($stateProvider, $urlRouterProvider, $logProvider) {
 
         $stateProvider
             .state(AFL.PAGES.LOGIN.name, {
@@ -71,5 +63,7 @@ angular.module(AFL.appName, ['ionic', AFL.moduleNames.CONTROLLERS, AFL.moduleNam
             });
 
 
-        $urlRouterProvider.otherwise('/login')
+        $urlRouterProvider.otherwise('/login');
+
+        $logProvider.debugEnabled(true);
     }]);

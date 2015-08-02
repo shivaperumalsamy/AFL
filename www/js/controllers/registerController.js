@@ -1,7 +1,7 @@
-controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '$log', AFL.PAGES.REGISTER.factory, function($scope, $rootScope, $log, RegisterFactory) {
+controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '$ionicHistory', '$utils', '$log', AFL.PAGES.REGISTER.factory, function($scope, $rootScope, $ionicHistory, $utils, $log, RegisterFactory) {
 
 	$scope.registerFormObject = {
-		username : '',
+		useremail : '',
 		password : '',
 		confirmPassword : ''
 	}
@@ -16,7 +16,15 @@ controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '
 
 
 		if(registerForm.$valid && ($scope.registerFormObject.password === $scope.registerFormObject.confirmPassword)) {
-			RegisterFactory.registerFormSubmit($scope.registerFormObject);
+			$utils.showSpinner();
+			RegisterFactory.registerFormSubmit($scope.registerFormObject).then(function(response) {
+				$utils.hideSpinner();
+				$utils.showAlert("Success", "The account has been created successfully. You will now be taken to the login page.");
+				$ionicHistory.goBack();
+			}, function() {
+				$utils.showAlert("Error", "Some error occurred. Please try again.");
+				$utils.hideSpinner();
+			});
 		}
 
 		$log.debug('RegisterController.registerFormSubmit end');

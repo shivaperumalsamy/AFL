@@ -96,77 +96,20 @@
                 <div class="roster_wrapper">
                     <div class="table_wrapper">
                         <div class="table_header">Roster</div>
-                        <div class="scroll_up">
+                        <div class="scroll_up" ng-class="(rosterPageNumber != 1)? 'visible' : 'invisible'" ng-click="showPreviousPage()">
                         	<i class="icon ion-ios-arrow-up"></i>
                         </div>
                         <ul class="table_content">
-                            <li class="table_content_row scorchers">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>asdfas</span>
-                                <span>476</span>
+                            <li class="table_content_row scorchers" ng-repeat="player in roster" on-double-tap="addPlayerToSquad()">
+                                <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
+                                <span>{{ player.playerName }}</span>
+                                <span>{{ player.totalPoints }}</span>
                             </li>
-                            <li class="table_content_row superstars">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>adfsdf</span>
-                                <span>457</span>
-                            </li>
-                            <li class="table_content_row superstars">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>asdf</span>
-                                <span>457</span>
-                            </li>
-                            <li class="table_content_row hurricanes">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>dfghsd</span>
-                                <span>74567</span>
-                            </li>
-                            <li class="table_content_row scorchers">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>fdhd</span>
-                                <span>5678</span>
-                            </li>
-                            <li class="table_content_row strikers">
-                                <span class="player_icon"><i class="batsman"></i></span>
-                                <span>zxvx</span>
-                                <span>8657</span>
-                            </li>
-                            <li class="table_content_row scorchers">
-                                <span class="player_icon"><i class="bowler"></i></span>
-                                <span>ytjt</span>
-                                <span>7856</span>
-                            </li>
-                            <li class="table_content_row strikers">
-                                <span class="player_icon"><i class="bowler"></i></span>
-                                <span>gdfshg</span>
-                                <span>578</span>
-                            </li>
-                            <li class="table_content_row strikers">
-                                <span class="player_icon"><i class="bowler"></i></span>
-                                <span>gadfg</span>
-                                <span>2345</span>
-                            </li>
-                            <li class="table_content_row scorchers">
-                                <span class="player_icon"><i class="bowler"></i></span>
-                                <span>fddghds</span>
-                                <span>452</span>
-                            </li>
-                            <li class="table_content_row hurricanes">
-                                <span class="player_icon"><i class="bowler"></i></span>
-                                <span>fddasdfghds</span>
-                                <span>3452</span>
-                            </li>
-                            <li class="table_content_row scorchers">
-                                <span class="player_icon"><i class="all-rounder"></i></span>
-                                <span>fddghds</span>
-                                <span>452</span>
-                            </li>
-                            <li class="table_content_row hurricanes">
-                                <span class="player_icon"><i class="all-rounder"></i></span>
-                                <span>fddasdfghds</span>
-                                <span>3452</span>
+                            <li class="filler">
+                                
                             </li>
                         </ul>
-                        <div class="scroll_down">
+                        <div class="scroll_down" ng-class="(roster.length > (rosterPageNumber * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
                         	<i class="icon ion-ios-arrow-down"></i>
                         </div>
                     </div>

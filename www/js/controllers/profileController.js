@@ -1,48 +1,66 @@
-controllers.controller(AFL.PAGES.PROFILE.controller, ['$scope', '$rootScope', '$utils', '$state', '$log', AFL.PAGES.PROFILE.factory, function($scope, $rootScope, $utils, $state, $log, ProfileFactory) {
+controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', '$rootScope', '$utils', '$state', '$log', AFL.PAGES.PROFILE.factory, function($stateParams, $scope, $rootScope, $utils, $state, $log, ProfileFactory) {
+    $scope.teamProfile = {};
+    $scope.currentTeam = [];
+    $scope.recentMatches = [];
 
-	$scope.userProfile = {};
-	$scope.$on('$ionicView.beforeEnter', function() {
-		$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : start");
+    $scope.$on('$ionicView.beforeEnter', function() {
+        $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : start");
+        var teamId = $stateParams.teamId;
 
-		if($rootScope.currentUser && $rootScope.currentUser.isLoggedIn) {
-			$scope.getUserProfile();
-		}
+        if (teamId === AFL.NON_EXISTENT) {
+        	$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team does not exist");
+            $scope.userTeamExists = false;
+        } else {
+        	$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team exists with id: " + teamId);
+            $scope.userTeamExists = true;
 
-		$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : end");
-	});
+            if ($rootScope.currentUser && $rootScope.currentUser.isLoggedIn) {
+                $scope.getUserTeamProfile(teamId);
+                $scope.getUserFantasyTeam(teamId);
+            }
+        }
+        $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : end");
+    });
 
-	$scope.getUserProfile = function() {
-		$utils.showSpinner();
-		ProfileFactory.getUserProfile($rootScope.currentUser.userId).then(function(userProfile) {
-			$scope.userProfile = userProfile;
+    $scope.getUserTeamProfile = function(teamId) {
+        $utils.showSpinner();
+        ProfileFactory.getUserTeamProfile(teamId).then(function(teamProfile) {
+            $scope.teamProfile = teamProfile;
+            $utils.hideSpinner();
+        }, function() {
+            $utils.hideSpinner();
+            $utils.showAlert("Sorry!!!", "User Profile could not be retrieved, Please try again");
+        });
+    };
 
-			if(userProfile.teams.length > 0) {
-				$scope.getRecentUserHistory();
-			}
-			$utils.hideSpinner();
-		}, function() {
-			$utils.hideSpinner();
-			$utils.showAlert("Sorry!!!", "User Profile could not be retrieved, Please try again");
-		});
-	};
+    $scope.getUserFantasyTeam = function(teamId) {
+        $utils.showSpinner();
+        ProfileFactory.getUserFantasyTeam(teamId).then(function(currentTeam) {
+            $scope.currentTeam = currentTeam;
+            $utils.hideSpinner();
+        }, function() {
+            $utils.hideSpinner();
+            $utils.showAlert("Sorry!!!", "User Team could not be retrieved, Please try again");
+        });
+    }
 
-	$scope.getRecentUserHistory = function() {
-		ProfileFactory.getRecentUserHistory().then(function(response) {
+    $scope.getRecentUserHistory = function() {
+        ProfileFactory.getRecentUserHistory().then(function(response) {
 
-		}, function() {
+        }, function() {
 
-		});
-	};
+        });
+    };
 
-	$scope.getStarted = function() {
-		$log.debug(AFL.PAGES.PROFILE.controller + ".getStarted : start");
-		$state.go(AFL.PAGES.CREATE_TEAM.name);
-		$log.debug(AFL.PAGES.PROFILE.controller + ".getStarted : end");
-	};
+    $scope.getStarted = function() {
+        $log.debug(AFL.PAGES.PROFILE.controller + ".getStarted : start");
+        $state.go(AFL.PAGES.CREATE_TEAM.name);
+        $log.debug(AFL.PAGES.PROFILE.controller + ".getStarted : end");
+    };
 
-	$scope.loadSquadSelection = function() {
-		$log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : start");
-		$state.go(AFL.PAGES.SQUAD_SELECTION.name);
-		$log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : end");
-	};
+    $scope.loadSquadSelection = function() {
+        $log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : start");
+        $state.go(AFL.PAGES.SQUAD_SELECTION.name);
+        $log.debug(AFL.PAGES.PROFILE.controller + ".loadSquadSelection : end");
+    };
 }]);

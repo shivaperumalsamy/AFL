@@ -8,32 +8,26 @@
                         <div class="input-label">
                             Select Team
                         </div>
-                        <select>
-                            <option>Blue</option>
-                            <option selected>Green</option>
-                            <option>Red</option>
+                        <select ng-model="filterObject.teamId">
+                            <option value="-1">Select Team</option>
+                            <option ng-repeat="team in fantasyTeams" value="{{ team.teamId }}">{{ team.teamName }}</option>
                         </select>
                     </li>
                     <li class="item item-input item-select">
                         <div class="input-label">
                             Select Player Type
                         </div>
-                        <select>
-                            <option>Blue</option>
-                            <option selected>Green</option>
-                            <option>Red</option>
+                        <select no-model="filterObject.playerTypeId">
+                            <option value="-1">Select Player Type</option>
+                            <option ng-repeat="playerType in playerTypes" value="{{ playerType.typeId }}">{{ playerType.typeName }}</option>
                         </select>
                     </li>
-                    <li class="item item-toggle">
-                        HTML5
-                        <label class="toggle toggle-assertive">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
+                    <ion-toggle ng-model="filterObject.impactPlayer.isChecked" ng-checked="filterObject.impactPlayer.isChecked">
+                        {{ filterObject.impactPlayer.text }}
+                    </ion-toggle>
                 </ul>
+
+                {{ filterObject.impactPlayer.isChecked }}
             </div>
             <button type="button" class="button button-primary button-block filter_button" ng-click="saveFilter()">Filter</button>
         </div>
