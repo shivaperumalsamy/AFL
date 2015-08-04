@@ -62,14 +62,34 @@ utils.provider('$utils', [function() {
                     hideSpinner: function() {
                     	$ionicLoading.hide();
                     },
-                    isPlayerInSelectedTeam : function(player, teamId) {
+                    isPlayerInFilteredTeam : function(player, teamId) {
                         return (teamId == AFL.NON_EXISTENT) ? true : (player.playerAplTeamId == teamId);
                     },
-                    isPlayerOfSelectedType : function(player, playerTypeId) {
+                    isPlayerOfFilteredType : function(player, playerTypeId) {
                         return (playerTypeId == AFL.NON_EXISTENT) ? true : (player.playerTypeId == playerTypeId);
                     },
                     isImpactPlayer : function(player, impactPlayer) {
                         return !impactPlayer ? true : (player.isImpact ? true : false);
+                    },
+                    isPlayerInCurrentTeam : function(currentTeam, player) {
+                        return this.getPlayerFromTeamById(currentTeam, player.playerId) ? true : false;
+                    },
+                    getPlayerFromTeamById : function(team, playerId) {
+                        var player = undefined;
+                        for(var i = 0; i < team.length; i++) {
+                            if(team[i].playerId == playerId) {
+                                player = team[i];
+                            }
+                        }
+                        return player;
+                    },
+                    removePlayerFromTeamById : function(team, playerId) {
+                        for(var i = 0; i < team.length; i++) {
+                            if(team[i].playerId == playerId) {
+                                    team.splice(i, 1);
+                                    console.log("splicing");
+                            }
+                        }
                     }
                 };
             }

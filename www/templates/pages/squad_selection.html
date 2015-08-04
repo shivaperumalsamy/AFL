@@ -24,18 +24,14 @@
             </span>
             </div>
             <div class="conditions_wrapper">
-                <span class="condition"></span>
-                <span class="condition"></span>
-                <span class="condition"></span>
-                <span class="condition"></span>
-                <span class="condition"></span>
+                <span class="condition" ng-repeat="conditionName in conditionNames"ng-class="{ 'condition_pass' : true , 'condition_fail' : conditions[conditionName] }" ></span>
             </div>
             <div class="team_selection_wrapper">
                 <div class="current_team_wrapper">
                     <div class="table_wrapper">
                         <div class="table_header">Squad</div>
                         <ul class="table_content">
-                            <li class="table_content_row strikers" ng-repeat="player in currentTeam">
+                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in currentTeam">
                                 <span class="player_icon"><i class="batsman"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span>{{ player.totalPoints }}</span>
@@ -53,7 +49,7 @@
                             <i class="icon ion-ios-arrow-up"></i>
                         </div>
                         <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster | rosterfilter:this" on-double-tap="addPlayerToSquad()">
+                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster | rosterfilter:this" on-double-tap="addPlayerToSquad({{ player.playerId }})">
                                 <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span>{{ player.totalPoints }}</span>

@@ -99,7 +99,8 @@ triangle {
   height: 50px;
   line-height: 50px;
   font-size: 30px;
-  z-index: 10000; }
+  z-index: 10000;
+  padding-top: 2px; }
 
 .ball {
   box-sizing: border-box;
@@ -254,6 +255,13 @@ ion-side-menu {
 .invisible {
   visibility: hidden;
   cursor-events: none; }
+
+/*CONDITIONS*/
+.condition_pass {
+  background-color: #50D2C1; }
+
+.condition_fail {
+  background-color: orangered; }
 
 .login_wrapper .sign_up_link {
   display: block;
@@ -489,13 +497,13 @@ ion-side-menu {
 .squad_selection_wrapper .conditions_wrapper {
   width: 95%;
   margin: 0 auto;
-  margin-top: 5px; }
+  margin-top: 5px;
+  overflow: hidden; }
   .squad_selection_wrapper .conditions_wrapper .condition {
     display: inline-block;
     box-sizing: border-box;
     float: left;
     height: 5px;
-    background: blueviolet;
     width: 20%;
     border-right: 1px solid white; }
     .squad_selection_wrapper .conditions_wrapper .condition:last-child {

@@ -75,7 +75,8 @@ var AFL = {
             createFantasyUser : "createFantasyUser",
             createFantasyTeam : "createFantasyTeam",
             loginUser : "loginUser",
-            getUserFantasyTeam : "getUserFantasyTeam"
+            getUserFantasyTeam : "getUserFantasyTeam",
+            insertPlayerSelection : "insertPlayerSelection"
         },
         RequestType: {
             GET: "GET",
@@ -96,6 +97,38 @@ var AFL = {
         2 : "superstars",
         3 : "strikers",
         4 : "scorchers"
+    },
+    PLAYER_SELECTION_CONDITIONS : {
+        ELEVEN_PLAYERS : {
+            isToBeChecked : true,
+            checkCondition : function(team) {
+                return team.length == 11;
+            }
+        },
+        HAS_CAPTAIN : {
+            isToBeChecked : true,
+            checkCondition : function(team) {
+                return false;
+            }
+        },
+        OVERPRICE : {
+            isToBeChecked : true,
+            checkCondition : function(team) {
+                return true;
+            }
+        },
+        ENOUGH_TRANSFERS : {
+            isToBeChecked : true,
+            checkCondition : function(team) {
+                return false;
+            }
+        },
+        SQUAD_COMPOSITION : {
+            isToBeChecked : true,
+            checkCondition : function(team) {
+                return true;
+            }
+        }
     }
 };
 

@@ -77,12 +77,12 @@
         width: 95%;
         margin: 0 auto;
         margin-top: 5px;
+        overflow: hidden;
         .condition {
             display: inline-block;
             box-sizing: border-box;
             float: left;
             height: 5px;
-            background: $theme-primary-color;
             width: 20%;
             border-right: 1px solid white;
             &:last-child {
