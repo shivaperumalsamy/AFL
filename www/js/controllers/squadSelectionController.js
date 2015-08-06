@@ -28,14 +28,15 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
         $scope.initializePage();
 
-        $scope.currentTeam = JSON.parse($stateParams.currentTeam);
+        $scope.currentTeam = $stateParams.currentTeam ? JSON.parse($stateParams.currentTeam) : [];
+        $scope.teamProfile = $stateParams.teamProfile ? JSON.parse($stateParams.teamProfile) : {};
+
         $scope.getAllAPLPlayers();
 
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".beforeEnter : end");
 
         $scope.checkConditions($scope.currentTeam);
 
-        global = $scope;
     });
 
     $scope.initializePage = function() {
@@ -43,11 +44,10 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $scope.filterObject = {};
 
         $scope.currentTeam = [];
-        $scope.filteredRoster = [];
+        $scope.roster = [];
         $scope.fantasyTeams = [];
         $scope.playerTypes = [];
-
-        $scope.fillerHeight = "0px";
+        $scope.teamProfile = [];
 
         $scope.filterObject.teamId = AFL.NON_EXISTENT;
         $scope.filterObject.playerTypeId = AFL.NON_EXISTENT;
@@ -59,11 +59,12 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $scope.rosterPageNumber = 1;
         $scope.conditions = {};
         $scope.conditionNames = [];
+
         for (var condition in AFL.PLAYER_SELECTION_CONDITIONS) {
             $scope.conditions[condition] = false;
-
-            $scope.conditionNames.push(condition);
         }
+
+        $scope.conditionNames = Object.keys($scope.conditions);
 
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".initializePage : end");
     }
@@ -83,7 +84,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     $scope.showNextPage = function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : start");
 
-        if ($scope.filteredRoster.length > ($scope.rosterPageNumber * 11)) {
+        if ($scope.roster.length > ($scope.rosterPageNumber * 11)) {
             var rosterContainer = document.querySelector('.roster_wrapper .table_content');
             var scrollTop = rosterContainer.scrollTop + rosterContainer.offsetHeight;
             $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : scrollTop : " + scrollTop);
@@ -101,12 +102,9 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         SquadSelectionFactory.getAllAPLPlayers().then(function(roster) {
             for (var i = 0; i < roster.length; i++) {
                 if (!$utils.isPlayerInCurrentTeam($scope.currentTeam, roster[i])) {
-                    $scope.filteredRoster.push(roster[i]);
+                    $scope.roster.push(roster[i]);
                 }
             }
-
-            var fillerHeight = (11 - (roster.length % 11)) * 30;
-            $scope.fillerHeight = fillerHeight + 'px';
 
             console.dir($scope.currentTeam);
         }, function() {
@@ -142,15 +140,19 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : start");
 
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : PlayerId : " + playerId);
-        if (($scope.currentTeam.length > 11) && !($utils.getPlayerFromTeamById($scope.currentTeam, playerId))) {
-            $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : Player already present in the current squad");
+        if ($scope.currentTeam.length >= AFL.MAX_TEAM_PLAYERS) {
+            $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : Your current squad already has 11 players.");
             $utils.showAlert("Error", "Your current squad already has 11 players.")
         } else {
-            $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : Player is present in the current squad");
-            var player = $utils.getPlayerFromTeamById($scope.filteredRoster, playerId);
-            console.log(playerId);
+            var player = $utils.getPlayerFromTeamById($scope.roster, playerId);
             $scope.currentTeam.push(player);
-            $utils.removePlayerFromTeamById($scope.filteredRoster, playerId);
+
+            $scope.teamProfile.moneyLeft = $scope.teamProfile.moneyLeft - player.playerPrice;
+            $scope.teamProfile.transfersLeft = $scope.teamProfile.transfersLeft - 1;
+
+            $utils.removePlayerFromTeamById($scope.roster, playerId);
+
+            $scope.checkConditions();
         }
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".addPlayerToSquad : end");
     };
@@ -162,7 +164,6 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
     $scope.saveFilter = function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveFilter : start");
         $scope.hideFilterModal();
-        console.log($scope.filterObject.teamId + " " + $scope.filterObject.playerTypeId);
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveFilter : end");
     };
 
@@ -187,7 +188,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
         for (var condition in AFL.PLAYER_SELECTION_CONDITIONS) {
             if (AFL.PLAYER_SELECTION_CONDITIONS.hasOwnProperty(condition) && AFL.PLAYER_SELECTION_CONDITIONS[condition].isToBeChecked) {
-                $scope.conditions[condition] = AFL.PLAYER_SELECTION_CONDITIONS[condition].checkCondition($scope.currentTeam);
+                $scope.conditions[condition] = AFL.PLAYER_SELECTION_CONDITIONS[condition].checkCondition($scope);
             }
         }
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".checkConditions : end");

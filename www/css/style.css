@@ -455,15 +455,15 @@ ion-side-menu {
   position: relative;
   margin-top: 5px; }
   .squad_selection_wrapper .status_icons_wrapper .status_icon {
-    width: 100px;
+    width: 120px;
     display: inline-block;
     position: absolute;
     text-align: left;
-    margin-left: 20px; }
+    margin-left: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(1) {
       left: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(2) {
-      left: calc(50% - 50px); }
+      left: calc(50% - 35px); }
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(3) {
       right: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon .rotated_icon {

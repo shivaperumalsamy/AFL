@@ -7,7 +7,6 @@ controllers.controller(AFL.PAGES.SIDE_MENU.controller, ['$scope', '$rootScope', 
 		};
 
 		$utils.localStorage.setObject(AFL.CURRENT_USER, $rootScope.currentUser);
-		$ionicHistory.clearHistory();
 
 		$state.go(AFL.PAGES.LOGIN.name);
 		$log.debug(AFL.PAGES.SIDE_MENU.controller + ".logout : User logged out successfully");

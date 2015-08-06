@@ -1,5 +1,6 @@
 filters.filter(AFL.filters.ROSTER_FILTER, ['$utils', '$log', function($utils, $log) {
     return function(players, scope) {
+        console.log("%c%s", "background: red; color: white", "filter invoked");
         //$log.debug(AFL.filters.ROSTER_FILTER + ": start");
         var returnArray = [];
 
@@ -11,8 +12,8 @@ filters.filter(AFL.filters.ROSTER_FILTER, ['$utils', '$log', function($utils, $l
                 }
         });
 
-        var fillerHeight = (11 - (returnArray.length % 11)) * 30;
-        scope.fillerHeight = fillerHeight + 'px';
+        // var fillerHeight = (11 - (returnArray.length % 11)) * 30;
+        // scope.fillerHeight = fillerHeight + 'px';
 
         //$log.debug(AFL.filters.ROSTER_FILTER + ": end");
         return returnArray;

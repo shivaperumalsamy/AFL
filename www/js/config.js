@@ -51,7 +51,7 @@ var AFL = {
         },
         SQUAD_SELECTION: {
             name: 'squad_selection',
-            url: '/squad_selection/:currentTeam',
+            url: '/squad_selection/:currentTeam:teamProfile',
             templateUrl: 'templates/pages/squad_selection.html',
             controller: 'SquadSelectionController',
             factory: 'SquadSelectionFactory'
@@ -98,34 +98,40 @@ var AFL = {
         3 : "strikers",
         4 : "scorchers"
     },
+    MAX_TEAM_PLAYERS : 3,
     PLAYER_SELECTION_CONDITIONS : {
         ELEVEN_PLAYERS : {
             isToBeChecked : true,
-            checkCondition : function(team) {
-                return team.length == 11;
+            checkCondition : function(scope) {
+                return scope.currentTeam.length == AFL.MAX_TEAM_PLAYERS;
             }
         },
         HAS_CAPTAIN : {
-            isToBeChecked : true,
-            checkCondition : function(team) {
+            isToBeChecked : false,
+            checkCondition : function(scope) {
+                for(var i = 0; i < scope.currentTeam.length; i++)  {
+                    if(scope.currentTeam[i].isCaptain == 1) {
+                        return true;
+                    }
+                }
                 return false;
             }
         },
-        OVERPRICE : {
+        MONEY_LEFT : {
             isToBeChecked : true,
-            checkCondition : function(team) {
-                return true;
+            checkCondition : function(scope) {
+                return scope.teamProfile.moneyLeft >= 0;
             }
         },
         ENOUGH_TRANSFERS : {
             isToBeChecked : true,
-            checkCondition : function(team) {
-                return false;
+            checkCondition : function(scope) {
+                return scope.teamProfile.transfersLeft >= 0;
             }
         },
         SQUAD_COMPOSITION : {
-            isToBeChecked : true,
-            checkCondition : function(team) {
+            isToBeChecked : false,
+            checkCondition : function(scope) {
                 return true;
             }
         }

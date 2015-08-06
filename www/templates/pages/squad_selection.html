@@ -11,20 +11,20 @@
                     <span class="rotated_icon">
                     <i class="icon ion-cash"></i> 
                 </span>
-                    <span class="status_text"> $1000</span>
+                    <span class="status_text">$ {{ teamProfile.moneyLeft }}</span>
                 </div>
                 <div class="status_icon">
                     <span class="rotated_icon">
                     <i class="icon ion-arrow-swap"></i> 
                 </span>
-                    <span class="status_text"> 10</span>
+                    <span class="status_text">{{ teamProfile.transfersLeft }}</span>
                 </div>
                 <span class="ball filter_ball" ng-click="showFilterModal()">
                 <i class="icon ion-funnel"></i> 
             </span>
             </div>
             <div class="conditions_wrapper">
-                <span class="condition" ng-repeat="conditionName in conditionNames"ng-class="{ 'condition_pass' : true , 'condition_fail' : conditions[conditionName] }" ></span>
+                <span class="condition" ng-repeat="conditionName in conditionNames" ng-class="{ 'condition_pass' : conditions[conditionName] , 'condition_fail' : !conditions[conditionName] }" ></span>
             </div>
             <div class="team_selection_wrapper">
                 <div class="current_team_wrapper">
@@ -34,7 +34,7 @@
                             <li class="table_content_row {{ player.teamName }}" ng-repeat="player in currentTeam">
                                 <span class="player_icon"><i class="batsman"></i></span>
                                 <span>{{ player.playerName }}</span>
-                                <span>{{ player.totalPoints }}</span>
+                                <span> ${{ player.playerPrice }}</span>
                             </li>
                             <div class="message" ng-show="currentTeam.length == 0">
                                 {{ AFL_MESSAGES.NO_PLAYERS_SELECTED }}
@@ -49,15 +49,15 @@
                             <i class="icon ion-ios-arrow-up"></i>
                         </div>
                         <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster | rosterfilter:this" on-double-tap="addPlayerToSquad({{ player.playerId }})">
+                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster = (roster | rosterfilter:this)" on-double-tap="addPlayerToSquad({{ player.playerId }})">
                                 <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
                                 <span>{{ player.playerName }}</span>
-                                <span>{{ player.totalPoints }}</span>
+                                <span> ${{ player.playerPrice }}</span>
                             </li>
-                            <li class="filler" ng-style="{ height : fillerHeight }">
+                            <li class="filler" style="height : {{ (11 - (filteredRoster.length % 11)) * 30 + 'px' }}">
                             </li>
                         </ul>
-                        <div class="scroll_down" ng-class="(filteredRoster.length > (filteredRoster * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
+                        <div class="scroll_down" ng-class="(roster.length > (roster * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
                             <i class="icon ion-ios-arrow-down"></i>
                         </div>
                     </div>

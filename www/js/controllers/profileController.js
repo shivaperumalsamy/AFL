@@ -37,7 +37,7 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $utils.showSpinner();
         ProfileFactory.getUserFantasyTeam(teamId).then(function(currentTeam) {
             $scope.currentTeam = currentTeam;
-            console.log($scope.currentTeam.length);
+            globa = $scope.currentTeam;
             $utils.hideSpinner();
         }, function() {
             $utils.hideSpinner();
@@ -69,7 +69,8 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : start");
 
         $state.go(AFL.PAGES.SQUAD_SELECTION.name, {
-            currentTeam : JSON.stringify($scope.currentTeam)
+            currentTeam : JSON.stringify($scope.currentTeam),
+            teamProfile : JSON.stringify($scope.teamProfile)
         });
 
         $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : end");

@@ -33,6 +33,12 @@ services.factory(AFL.PAGES.PROFILE.factory, ['$q', '$rootScope', '$utils', '$log
             }).then(function(response) {
                 if (response.type === AFL.BACK_END.ResponseType.SUCCESS) {
                     var currentSquad = response.data.teamDetails;
+
+                    currentSquad.forEach(function(element, index, array) {
+                        element.playerType = AFL.PLAYER_TYPE_CLASSES[element.playerTypeId];
+                        element.teamName = AFL.TEAM_CLASSES[element.playerAplTeamId];
+                    });
+
                     deferred.resolve(currentSquad);
                 } else {
                     $log.debug(response.message);

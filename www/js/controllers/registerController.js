@@ -1,4 +1,4 @@
-controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '$ionicHistory', '$utils', '$log', AFL.PAGES.REGISTER.factory, function($scope, $rootScope, $ionicHistory, $utils, $log, RegisterFactory) {
+controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '$state', '$utils', '$log', AFL.PAGES.REGISTER.factory, function($scope, $rootScope, $state, $utils, $log, RegisterFactory) {
 
 	$scope.registerFormObject = {
 		useremail : '',
@@ -20,7 +20,7 @@ controllers.controller(AFL.PAGES.REGISTER.controller, ['$scope', '$rootScope', '
 				$utils.hideSpinner();
 				if(response) {
 					$utils.showAlert("Success", "The account has been created successfully. You will now be taken to the login page.");
-					$ionicHistory.goBack();
+					$state.go(AFL.PAGES.LOGIN.name);
 				}
 				else {
 					$utils.showAlert("Error", "Username already exists. Choose a different one.");

@@ -26,60 +26,10 @@
                     <i class="ion-edit"></i>
                 </div>
                 <ul class="table_content" ng-show="currentTeam.length > 0">
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>asdfas</span>
-                        <span>476</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>adfsdf</span>
-                        <span>457</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>asdf</span>
-                        <span>457</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>dfghsd</span>
-                        <span>74567</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>fdhd</span>
-                        <span>5678</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>zxvx</span>
-                        <span>8657</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>ytjt</span>
-                        <span>7856</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>gdfshg</span>
-                        <span>578</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>gadfg</span>
-                        <span>2345</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>fddghds</span>
-                        <span>452</span>
-                    </li>
-                    <li class="table_content_row">
-                        <span class="player_icon"><i class="batsman"></i></span>
-                        <span>fddasdfghds</span>
-                        <span>34523</span>
+                    <li class="table_content_row" ng-repeat="player in currentTeam">
+                        <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
+                        <span>{{ player.playerName }}</span>
+                        <span>{{ player.totalPoints }}</span>
                     </li>
                 </ul>
                 <div class="message" ng-show="currentTeam.length == 0">
