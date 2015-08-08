@@ -12,8 +12,13 @@ services.factory(AFL.PAGES.SQUAD_SELECTION.factory, ['$q', '$utils', '$log', fun
                         players.forEach(function (element, index, array) {
                             element.playerType = AFL.PLAYER_TYPE_CLASSES[element.playerTypeId];
                             element.teamName = AFL.TEAM_CLASSES[element.playerAplTeamId];
-                            element.isCaptain = 0;
+                            element.isCaptain = AFL.NON_CAPTAIN;
                         });
+
+                        players.sort(function(a, b) {
+                            return a.playerName.localeCompare(b.playerName);
+                        });
+
                         deferred.resolve(players);
                     } else {
                         $log.debug(response.message);

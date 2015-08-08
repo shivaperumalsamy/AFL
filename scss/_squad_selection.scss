@@ -117,6 +117,9 @@
                 }
                 &:nth-child(2) {
                     width: 60%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
                 &:nth-child(3) {
                     width: 20%;
@@ -130,6 +133,25 @@
         .current_team_wrapper {
             .table_content {
                 margin: 30px auto !important;
+                .table_content_row {
+                    position: relative;
+                }
+                .is_captain:after {
+                    content: 'C';
+                    box-sizing: border-box;
+                    position: absolute;
+                    right: 1px;
+                    top: 7px;
+                    font-size: 10px;
+                    background-color: $theme-secondary-color;
+                    padding-left: 4px;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                    color: white;
+                    line-height: 15px;
+                    padding-top: 1px;
+                }
             }
         }
         .roster_wrapper {
@@ -152,7 +174,6 @@
                 .table_content_row {
                     position: relative;
                 }
-
                 .filler {
                     display: block;
                 }

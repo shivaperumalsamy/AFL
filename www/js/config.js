@@ -5,6 +5,12 @@ var AFL = {
     CREATE : "create",
     EDIT : "edit",
     NON_EXISTENT : -1,
+    NON_CAPTAIN : 0,
+    CAPTAIN : 1,
+    SORT :  {
+        ASC : "ASCENDING",
+        DESC : "DESCENDING"
+    },
     moduleNames: {
         CONTROLLERS: "afl.controllers",
         SERVICES: "afl.services",
@@ -98,7 +104,7 @@ var AFL = {
         3 : "strikers",
         4 : "scorchers"
     },
-    MAX_TEAM_PLAYERS : 3,
+    MAX_TEAM_PLAYERS : 11,
     PLAYER_SELECTION_CONDITIONS : {
         ELEVEN_PLAYERS : {
             isToBeChecked : true,

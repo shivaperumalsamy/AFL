@@ -31,7 +31,7 @@
                     <div class="table_wrapper">
                         <div class="table_header">Squad</div>
                         <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in currentTeam">
+                            <li class="table_content_row {{ player.teamName }}" ng-class="{ is_captain : player.isCaptain == 1 }" ng-repeat="player in currentTeam" on-double-tap="removePlayerFromSquad({{ player.playerId }})" on-hold="makeCaptain({{ player.playerId }})">
                                 <span class="player_icon"><i class="batsman"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span> ${{ player.playerPrice }}</span>

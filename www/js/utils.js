@@ -71,8 +71,8 @@ utils.provider('$utils', [function() {
                     isImpactPlayer : function(player, impactPlayer) {
                         return !impactPlayer ? true : (player.isImpact ? true : false);
                     },
-                    isPlayerInCurrentTeam : function(currentTeam, player) {
-                        return this.getPlayerFromTeamById(currentTeam, player.playerId) ? true : false;
+                    isPlayerInTeamById : function(team, playerId) {
+                        return this.getPlayerFromTeamById(team, playerId) ? true : false;
                     },
                     getPlayerFromTeamById : function(team, playerId) {
                         var player = undefined;
@@ -90,6 +90,9 @@ utils.provider('$utils', [function() {
                                     console.log("splicing");
                             }
                         }
+                    },
+                    sortArray : function(arr, fieldName, sortType) {
+                        
                     }
                 };
             }

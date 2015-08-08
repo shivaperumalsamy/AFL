@@ -532,7 +532,10 @@ ion-side-menu {
       .squad_selection_wrapper .team_selection_wrapper > div span:nth-child(1) {
         width: 19%; }
       .squad_selection_wrapper .team_selection_wrapper > div span:nth-child(2) {
-        width: 60%; }
+        width: 60%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
       .squad_selection_wrapper .team_selection_wrapper > div span:nth-child(3) {
         width: 20%;
         float: right; }
@@ -540,6 +543,23 @@ ion-side-menu {
       height: 330px; }
   .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content {
     margin: 30px auto !important; }
+    .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content .table_content_row {
+      position: relative; }
+    .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content .is_captain:after {
+      content: 'C';
+      box-sizing: border-box;
+      position: absolute;
+      right: 1px;
+      top: 7px;
+      font-size: 10px;
+      background-color: #50D2C1;
+      padding-left: 4px;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      color: white;
+      line-height: 15px;
+      padding-top: 1px; }
   .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] {
     height: 20px;
     text-align: center;

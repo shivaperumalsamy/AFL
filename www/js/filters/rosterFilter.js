@@ -11,10 +11,6 @@ filters.filter(AFL.filters.ROSTER_FILTER, ['$utils', '$log', function($utils, $l
                     returnArray.push(player);
                 }
         });
-
-        // var fillerHeight = (11 - (returnArray.length % 11)) * 30;
-        // scope.fillerHeight = fillerHeight + 'px';
-
         //$log.debug(AFL.filters.ROSTER_FILTER + ": end");
         return returnArray;
     }
