@@ -24,14 +24,14 @@
             </span>
             </div>
             <div class="conditions_wrapper">
-                <span class="condition" ng-repeat="conditionName in conditionNames" ng-class="{ 'condition_pass' : conditions[conditionName] , 'condition_fail' : !conditions[conditionName] }" ></span>
+                <span class="condition" ng-repeat="conditionName in conditionNames" ng-class="{ 'condition_pass' : conditions[conditionName] , 'condition_fail' : !conditions[conditionName] }"></span>
             </div>
             <div class="team_selection_wrapper">
                 <div class="current_team_wrapper">
                     <div class="table_wrapper">
                         <div class="table_header">Squad</div>
                         <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-class="{ is_captain : player.isCaptain == 1 }" ng-repeat="player in currentTeam" on-double-tap="removePlayerFromSquad({{ player.playerId }})" on-hold="makeCaptain({{ player.playerId }})">
+                            <li class="table_content_row {{ player.teamName }}" ng-class="{ is_captain : player.isCaptain == 1 }" ng-repeat="player in currentTeam" on-double-tap="removePlayerFromSquad({{ player.playerId }})" on-hold="makeCaptain({{ player.pla}})">
                                 <span class="player_icon"><i class="batsman"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span> ${{ player.playerPrice }}</span>
@@ -48,16 +48,18 @@
                         <div class="scroll_up" ng-class="(rosterPageNumber != 1)? 'visible' : 'invisible'" ng-click="showPreviousPage()">
                             <i class="icon ion-ios-arrow-up"></i>
                         </div>
-                        <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster = (roster | rosterfilter:this)" on-double-tap="addPlayerToSquad({{ player.playerId }})">
-                                <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
-                                <span>{{ player.playerName }}</span>
-                                <span> ${{ player.playerPrice }}</span>
-                            </li>
-                            <li class="filler" style="height : {{ (11 - (filteredRoster.length % 11)) * 30 + 'px' }}">
-                            </li>
-                        </ul>
-                        <div class="scroll_down" ng-class="(roster.length > (roster * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
+                        <div class="translate_div">
+                            <ul class="table_content roster_list">
+                                <li class="table_content_row {{ player.teamName }}" ng-repeat="player in filteredRoster = (roster | rosterfilter:this)" on-double-tap="addPlayerToSquad({{ player.playerId }})">
+                                    <span class="player_icon"><i class="{{ player.playerType }}"></i></span>
+                                    <span>{{ player.playerName }}</span>
+                                    <span> ${{ player.playerPrice }}</span>
+                                </li>
+                                <li class="filler" style="height : {{ (11 - (filteredRoster.length % 11)) * 30 + 'px' }}">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="scroll_down" ng-class="(roster.length > (rosterPageNumber * 11)) ? 'visible' : 'invisible'" ng-click="showNextPage()">
                             <i class="icon ion-ios-arrow-down"></i>
                         </div>
                     </div>

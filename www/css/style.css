@@ -566,10 +566,13 @@ ion-side-menu {
     cursor: pointer; }
     .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] i:before {
       font-size: 20px; }
+  .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .translate_div {
+    height: 330px;
+    width: 100%;
+    overflow: hidden; }
   .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content {
     position: relative;
     height: 330px;
-    overflow: scroll;
     margin: 0 auto;
     transition: all 1s linear; }
     .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content .table_content_row {

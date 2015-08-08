@@ -27,7 +27,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".beforeEnter : start");
 
         $scope.initializePage();
-        console.dir($stateParams)
+
         $scope.currentTeam = $stateParams.currentTeam ? JSON.parse($stateParams.currentTeam) : [];
         $scope.teamProfile = $stateParams.teamProfile ? JSON.parse($stateParams.teamProfile) : {};
 
@@ -76,13 +76,11 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
     $scope.showPreviousPage = function() {
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showPreviousPage : start");
-        if ($scope.rosterPageNumber != 1) {
-            var rosterContainer = document.querySelector('.roster_wrapper .table_content');
-            var scrollTop = rosterContainer.scrollTop - rosterContainer.offsetHeight;
-            $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : scrollTop : " + scrollTop);
-            rosterContainer.scrollTop = scrollTop;
-            $scope.rosterPageNumber--;
-        }
+        $scope.rosterPageNumber--;
+        var rosterContainer = document.querySelector('.roster_list');
+        var scrollTop = ($scope.rosterPageNumber - 1)* 330;
+        $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : scrollTop : " + scrollTop);
+        rosterContainer.setAttribute("style", "transform : translateY(-" + scrollTop + "px)");
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showPreviousPage : end");
     };
 
@@ -90,13 +88,12 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : start");
 
         if ($scope.roster.length > ($scope.rosterPageNumber * 11)) {
-            var rosterContainer = document.querySelector('.roster_wrapper .table_content');
-            var scrollTop = rosterContainer.scrollTop + rosterContainer.offsetHeight;
+            var rosterContainer = document.querySelector('.roster_list');
+            var scrollTop = $scope.rosterPageNumber * 330;
             $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : scrollTop : " + scrollTop);
-            rosterContainer.scrollTop = scrollTop;
+            rosterContainer.setAttribute("style", "transform : translateY(-" + scrollTop + "px)");
             $scope.rosterPageNumber++;
         }
-
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".showNextPage : end");
     };
 
@@ -241,7 +238,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
             }
         }
 
-        if(oldCaptain) {
+        if (oldCaptain) {
             oldCaptain.isCaptain = AFL.NON_CAPTAIN;
         }
 

@@ -163,12 +163,16 @@
                     font-size: 20px;
                 }
             }
-            .scroll_up {}
-            .scroll_down {}
+
+            .translate_div {
+                height: 330px;
+                width: 100%;
+                overflow: hidden;
+            }
+            
             .table_content {
                 position: relative;
                 height: 330px;
-                overflow: scroll;
                 margin: 0 auto;
                 transition: all 1s linear;
                 .table_content_row {
