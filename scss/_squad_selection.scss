@@ -30,6 +30,7 @@
             position: absolute;
             text-align: left;
             margin-left: 10px;
+            color: $theme-primary-font-color;
             &:nth-child(1) {
                 left: 10px;
             }
@@ -45,7 +46,7 @@
                 width: 30px;
                 height: 30px;
                 -webkit-transform: rotate(45deg);
-                color: white;
+                color: $theme-primary-font-color;
                 top: 10px;
                 padding-top: 6px;
                 font-size: 20px;
@@ -84,7 +85,7 @@
             float: left;
             height: 5px;
             width: 20%;
-            border-right: 1px solid white;
+            border-right: 1px solid $theme-background-color;
             &:last-child {
                 border-right: 0px;
             }
@@ -133,6 +134,7 @@
         .current_team_wrapper {
             .table_content {
                 margin: 30px auto !important;
+                background: $table-color-one;
                 .table_content_row {
                     position: relative;
                 }
@@ -148,10 +150,13 @@
                     border-radius: 50%;
                     width: 15px;
                     height: 15px;
-                    color: white;
+                    color: $theme-primary-font-color;
                     line-height: 15px;
                     padding-top: 1px;
                 }
+            }
+            .message {
+                color: $theme-secondary-font-color;
             }
         }
         .roster_wrapper {
@@ -180,6 +185,10 @@
                 .filler {
                     display: block;
                 }
+            }
+
+            div[class^='scroll'] {
+                color: $theme-primary-font-color;
             }
         }
     }

@@ -9,6 +9,7 @@
             text-align: center;
             line-height: 30px;
             font-weight: lighter;
+            color: $theme-primary-font-color;
         }
         .get_started_button {
             box-sizing: border-box;
@@ -36,7 +37,7 @@
             font-weight: lighter;
             &:before {
                 display: inline-block;
-                color: black;
+                color: $theme-primary-font-color;
                 width: 121%;
                 height: 30px;
                 position: absolute;

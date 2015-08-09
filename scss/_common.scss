@@ -1,11 +1,16 @@
 //@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-//@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 /*$theme-primary-color: #FF2E63;*/
 
-$theme-primary-color: #EE6557;
-$theme-secondary-color: #16A6B6;
-$theme-background-color: snowwhite;
+$theme-primary-color: #E36656;
+$theme-secondary-color: #A0D6D7;
+$theme-background-color: #363D45;
+$theme-primary-font-color: #FFFFFF;
+$theme-secondary-font-color: #000000;
+
+$table-color-one: #F7F7F7;
+$table-color-two: #E8E8E8;
 
 /*$theme-secondary-color: mediumpurple;*/
 
@@ -24,15 +29,15 @@ body {
 .button-primary:active,
 .button-primary:hover {
     background: $theme-primary-color;
-    color: white;
+    color: $theme-primary-font-color;
     border: 0px;
     text-transform: uppercase;
     font-family: $font-family, sans-serif;
     font-weight: 300;
 }
 
-.ion-view {
-    background-color: $theme-background-color;
+ion-view {
+    background-color: $theme-background-color !important;
 }
 
 triangle {
@@ -103,10 +108,10 @@ triangle {
         text-align: center;
         font-weight: 100;
         font-size: 16px;
-        color: black;
+        color: $theme-secondary-font-color;
     }
     input::-webkit-input-placeholder {
-        color: black;
+        color: $theme-secondary-font-color;
     }
     button {
         margin-top: 20px;
@@ -119,7 +124,7 @@ triangle {
 .header {
     padding: 10px 0px;
     text-transform: uppercase;
-    color: white;
+    color: $theme-primary-font-color;
     background: $theme-primary-color;
     text-align: center;
     font-weight: lighter;
@@ -146,7 +151,7 @@ triangle {
     box-sizing: border-box;
     position: absolute;
     text-align: center;
-    color: white;
+    color: $theme-primary-font-color;
     background: $theme-secondary-color;
     border-radius: 50%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
@@ -170,7 +175,7 @@ triangle {
 .popup-head {
     background: $theme-primary-color;
     .popup-title {
-        color: white;
+        color: $theme-primary-font-color;
         text-transform: uppercase;
         font-family: 'Open Sans', sans-serif;
         font-weight: lighter;
@@ -182,7 +187,7 @@ triangle {
 }
 
 .popup-buttons {
-    .button {
+    .button, .button:active {
         background-color: $theme-primary-color;
         border-width: 0px;
     }
@@ -209,7 +214,7 @@ triangle {
     box-sizing: border-box;
     width: 95%;
     margin: 0 auto;
-    color: white;
+    color: $theme-primary-font-color;
     text-transform: uppercase;
     text-align: center;
     height: 40px;
@@ -228,14 +233,14 @@ triangle {
         top: 0;
         border-top: 20px solid transparent;
         border-bottom: 20px solid transparent;
-        border-left: 20px solid white;
+        border-left: 20px solid $theme-background-color;
     }
     &:after {
         right: -1px;
         top: 0;
         border-top: 20px solid transparent;
         border-bottom: 20px solid transparent;
-        border-right: 20px solid white;
+        border-right: 20px solid $theme-background-color;
     }
 }
 
@@ -250,7 +255,7 @@ ion-side-menu {
     }
     .item-content {
         background: $theme-primary-color !important;
-        color: white;
+        color: $theme-primary-font-color;
         font-weight: lighter;
         text-transform: uppercase;
     }
@@ -279,7 +284,7 @@ ion-side-menu {
         margin: 10px auto;
         padding: 10px 0px;
         text-transform: uppercase;
-        color: white;
+        color: $theme-primary-font-color;
         background: $theme-primary-color;
         text-align: center;
         font-weight: lighter;
@@ -293,8 +298,9 @@ ion-side-menu {
             box-sizing: border-box;
             height: 30px;
             padding-top: 5px;
+            background: $table-color-one;
             &:nth-child(odd) {
-                background: #F7F7F7;
+                background: $table-color-two;
             }
             span {
                 display: inline-block;
@@ -328,13 +334,14 @@ ion-side-menu {
     display: inline-block;
     margin-bottom: 10px;
     width: 48%;
-    color: orangered;
+    color: $theme-primary-color;
     text-align: center;
 }
 
 .message {
     text-align: center;
     padding-top: 5px;
+    color: $theme-primary-font-color;
 }
 
 /*VISIBILITY*/
@@ -355,5 +362,5 @@ ion-side-menu {
 }
 
 .condition_fail {
-    background-color : orangered;
+    background-color : $theme-primary-color;
 }

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 /*$theme-primary-color: #FF2E63;*/
 /*$theme-secondary-color: mediumpurple;*/
 body {
@@ -9,15 +10,15 @@ body {
 .button-primary,
 .button-primary:active,
 .button-primary:hover {
-  background: #EE6557;
-  color: white;
+  background: #E36656;
+  color: #FFFFFF;
   border: 0px;
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   font-weight: 300; }
 
-.ion-view {
-  background-color: snowwhite; }
+ion-view {
+  background-color: #363D45 !important; }
 
 triangle {
   /*.triangle {
@@ -44,7 +45,7 @@ triangle {
     -webkit-filter: drop-shadow(0 0 3px black);
     filter: drop-shadow(0 0 3px black); }
     triangle svg polygon {
-      fill: #EE6557; }
+      fill: #E36656; }
   triangle div[class$='logo'] {
     position: absolute;
     left: 0;
@@ -78,9 +79,9 @@ triangle {
     text-align: center;
     font-weight: 100;
     font-size: 16px;
-    color: black; }
+    color: #000000; }
   .general_form input::-webkit-input-placeholder {
-    color: black; }
+    color: #000000; }
   .general_form button {
     margin-top: 20px; }
 
@@ -88,8 +89,8 @@ triangle {
 .header {
   padding: 10px 0px;
   text-transform: uppercase;
-  color: white;
-  background: #EE6557;
+  color: #FFFFFF;
+  background: #E36656;
   text-align: center;
   font-weight: lighter;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); }
@@ -111,8 +112,8 @@ triangle {
   box-sizing: border-box;
   position: absolute;
   text-align: center;
-  color: white;
-  background: #16A6B6;
+  color: #FFFFFF;
+  background: #A0D6D7;
   border-radius: 50%;
   box-shadow: 0px 0px 5px black; }
 
@@ -127,9 +128,9 @@ triangle {
 
 /*POPUP*/
 .popup-head {
-  background: #EE6557; }
+  background: #E36656; }
   .popup-head .popup-title {
-    color: white;
+    color: #FFFFFF;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter; }
@@ -137,8 +138,8 @@ triangle {
 .popup-body {
   text-align: center; }
 
-.popup-buttons .button {
-  background-color: #EE6557;
+.popup-buttons .button, .popup-buttons .button:active {
+  background-color: #E36656;
   border-width: 0px; }
 
 /*LOADING SPINNER*/
@@ -150,11 +151,11 @@ triangle {
 
 /*LEADER BOARD BANNER */
 .banner {
-  background: #EE6557;
+  background: #E36656;
   box-sizing: border-box;
   width: 95%;
   margin: 0 auto;
-  color: white;
+  color: #FFFFFF;
   text-transform: uppercase;
   text-align: center;
   height: 40px;
@@ -171,23 +172,23 @@ triangle {
     top: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid white; }
+    border-left: 20px solid #363D45; }
   .banner:after {
     right: -1px;
     top: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-right: 20px solid white; }
+    border-right: 20px solid #363D45; }
 
 /*SIDE MENU*/
 ion-side-menu {
-  background: #EE6557 !important; }
+  background: #E36656 !important; }
   ion-side-menu .item {
     border-color: white;
     border-collapse: collapse; }
   ion-side-menu .item-content {
-    background: #EE6557 !important;
-    color: white;
+    background: #E36656 !important;
+    color: #FFFFFF;
     font-weight: lighter;
     text-transform: uppercase; }
   ion-side-menu div[class$=logo] {
@@ -209,8 +210,8 @@ ion-side-menu {
     margin: 10px auto;
     padding: 10px 0px;
     text-transform: uppercase;
-    color: white;
-    background: #EE6557;
+    color: #FFFFFF;
+    background: #E36656;
     text-align: center;
     font-weight: lighter;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); }
@@ -221,9 +222,10 @@ ion-side-menu {
       width: 100%;
       box-sizing: border-box;
       height: 30px;
-      padding-top: 5px; }
+      padding-top: 5px;
+      background: #F7F7F7; }
       .table_wrapper .table_content .table_content_row:nth-child(odd) {
-        background: #F7F7F7; }
+        background: #E8E8E8; }
       .table_wrapper .table_content .table_content_row span {
         display: inline-block;
         box-sizing: border-box;
@@ -246,12 +248,13 @@ ion-side-menu {
   display: inline-block;
   margin-bottom: 10px;
   width: 48%;
-  color: orangered;
+  color: #E36656;
   text-align: center; }
 
 .message {
   text-align: center;
-  padding-top: 5px; }
+  padding-top: 5px;
+  color: #FFFFFF; }
 
 /*VISIBILITY*/
 .visible {
@@ -263,15 +266,16 @@ ion-side-menu {
 
 /*CONDITIONS*/
 .condition_pass {
-  background-color: #16A6B6; }
+  background-color: #A0D6D7; }
 
 .condition_fail {
-  background-color: orangered; }
+  background-color: #E36656; }
 
 .login_wrapper .sign_up_link {
   display: block;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #FFFFFF; }
 
 .profile_wrapper {
   padding-bottom: 5px; }
@@ -283,7 +287,8 @@ ion-side-menu {
       font-size: 30px;
       text-align: center;
       line-height: 30px;
-      font-weight: lighter; }
+      font-weight: lighter;
+      color: #FFFFFF; }
     .profile_wrapper .get_started_wrapper .get_started_button {
       box-sizing: border-box;
       display: block;
@@ -308,7 +313,7 @@ ion-side-menu {
       font-weight: lighter; }
       .profile_wrapper .profile_info_wrapper .profile_info_ball:before {
         display: inline-block;
-        color: black;
+        color: #FFFFFF;
         width: 121%;
         height: 30px;
         position: absolute;
@@ -362,7 +367,7 @@ ion-side-menu {
     border-radius: 50%;
     background-size: 10px;
     background-position: center center;
-    background-color: #EE6557;
+    background-color: #E36656;
     background-repeat: no-repeat;
     margin-left: 10x; }
   .profile_wrapper .current_squad_wrapper .table_content .table_content_row span:nth-child(1) {
@@ -388,13 +393,13 @@ ion-side-menu {
       top: 0;
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
-      border-left: 40px solid #EE6557; }
+      border-left: 40px solid #E36656; }
     .profile_wrapper .recent_matches_wrapper .table_content_row:after {
       right: -1px;
       top: 0;
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
-      border-right: 40px solid #EE6557; }
+      border-right: 40px solid #E36656; }
     .profile_wrapper .recent_matches_wrapper .table_content_row .ball {
       width: 30px;
       height: 30px;
@@ -448,7 +453,7 @@ ion-side-menu {
   font-size: 30px;
   cursor: pointer; }
 .squad_selection_wrapper .next_match_header {
-  background: #16A6B6;
+  background: #A0D6D7;
   width: 95%;
   margin: 0px auto;
   margin-top: 10px;
@@ -464,7 +469,8 @@ ion-side-menu {
     display: inline-block;
     position: absolute;
     text-align: left;
-    margin-left: 10px; }
+    margin-left: 10px;
+    color: #FFFFFF; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(1) {
       left: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(2) {
@@ -472,12 +478,12 @@ ion-side-menu {
     .squad_selection_wrapper .status_icons_wrapper .status_icon:nth-child(3) {
       right: 10px; }
     .squad_selection_wrapper .status_icons_wrapper .status_icon .rotated_icon {
-      background: #EE6557;
+      background: #E36656;
       display: inline-block;
       width: 30px;
       height: 30px;
       -webkit-transform: rotate(45deg);
-      color: white;
+      color: #FFFFFF;
       top: 10px;
       padding-top: 6px;
       font-size: 20px;
@@ -510,7 +516,7 @@ ion-side-menu {
     float: left;
     height: 5px;
     width: 20%;
-    border-right: 1px solid white; }
+    border-right: 1px solid #363D45; }
     .squad_selection_wrapper .conditions_wrapper .condition:last-child {
       border-right: 0px; }
 .squad_selection_wrapper .team_selection_wrapper {
@@ -529,7 +535,7 @@ ion-side-menu {
       border-radius: 50%;
       background-size: 10px;
       background-position: center center;
-      background-color: #EE6557;
+      background-color: #E36656;
       background-repeat: no-repeat; }
     .squad_selection_wrapper .team_selection_wrapper > div span {
       float: left;
@@ -547,7 +553,8 @@ ion-side-menu {
     .squad_selection_wrapper .team_selection_wrapper > div .table_content {
       height: 330px; }
   .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content {
-    margin: 30px auto !important; }
+    margin: 30px auto !important;
+    background: #F7F7F7; }
     .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content .table_content_row {
       position: relative; }
     .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .table_content .is_captain:after {
@@ -557,14 +564,16 @@ ion-side-menu {
       right: 1px;
       top: 7px;
       font-size: 10px;
-      background-color: #16A6B6;
+      background-color: #A0D6D7;
       padding-left: 4px;
       border-radius: 50%;
       width: 15px;
       height: 15px;
-      color: white;
+      color: #FFFFFF;
       line-height: 15px;
       padding-top: 1px; }
+  .squad_selection_wrapper .team_selection_wrapper .current_team_wrapper .message {
+    color: #000000; }
   .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] {
     height: 20px;
     text-align: center;
@@ -585,6 +594,8 @@ ion-side-menu {
       position: relative; }
     .squad_selection_wrapper .team_selection_wrapper .roster_wrapper .table_content .filler {
       display: block; }
+  .squad_selection_wrapper .team_selection_wrapper .roster_wrapper div[class^='scroll'] {
+    color: #FFFFFF; }
 .squad_selection_wrapper .bottom_button_wrapper {
   clear: both;
   text-align: center; }
