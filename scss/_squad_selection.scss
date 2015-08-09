@@ -163,13 +163,12 @@
                     font-size: 20px;
                 }
             }
-
             .translate_div {
                 height: 330px;
                 width: 100%;
                 overflow: hidden;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
             }
-            
             .table_content {
                 position: relative;
                 height: 330px;
@@ -184,9 +183,13 @@
             }
         }
     }
-    .save_squad_button {
-        margin-top: 20px;
-        width: 95%;
-        left: 2.5%;
+    .bottom_button_wrapper {
+        clear: both;
+        text-align: center;
+        button {
+            width: 49%;
+            display: inline-block;
+            margin-top: 20px;
+        }
     }
 }

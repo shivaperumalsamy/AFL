@@ -24,14 +24,14 @@
             </span>
             </div>
             <div class="conditions_wrapper">
-                <span class="condition" ng-repeat="conditionName in conditionNames" ng-class="{ 'condition_pass' : conditions[conditionName] , 'condition_fail' : !conditions[conditionName] }"></span>
+                <span class="condition" ng-repeat="conditionName in conditionNames" ng-class="conditions[conditionName] ? 'condition_pass' : 'condition_fail'" ng-click="showConditionMessage(conditionName)"></span>
             </div>
             <div class="team_selection_wrapper">
                 <div class="current_team_wrapper">
                     <div class="table_wrapper">
                         <div class="table_header">Squad</div>
                         <ul class="table_content">
-                            <li class="table_content_row {{ player.teamName }}" ng-class="{ is_captain : player.isCaptain == 1 }" ng-repeat="player in currentTeam" on-double-tap="removePlayerFromSquad({{ player.playerId }})" on-hold="makeCaptain({{ player.pla}})">
+                            <li class="table_content_row {{ player.teamName }}" ng-class="{ is_captain : player.isCaptain == 1 }" ng-repeat="player in currentTeam" on-double-tap="removePlayerFromSquad({{ player.playerId }})" on-hold="makeCaptain({{ player.playerId }})">
                                 <span class="player_icon"><i class="batsman"></i></span>
                                 <span>{{ player.playerName }}</span>
                                 <span> ${{ player.playerPrice }}</span>
@@ -65,7 +65,10 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button button-primary button-block save_squad_button" ng-click="saveSquad()">Save Squad</button>
+            <div class="bottom_button_wrapper">
+                <button type="button" class="button button-primary button-block save_squad_button" ng-click="saveSquad()">Save</button>
+                <button type="button" class="button button-primary button-block reset_squad_button" ng-click="resetSquad()">Reset</button>
+            </div>
         </div>
     </ion-content>
 </ion-view>

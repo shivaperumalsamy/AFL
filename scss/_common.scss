@@ -3,8 +3,9 @@
 
 /*$theme-primary-color: #FF2E63;*/
 
-$theme-primary-color: blueviolet;
-$theme-secondary-color: #50D2C1;
+$theme-primary-color: #EE6557;
+$theme-secondary-color: #16A6B6;
+$theme-background-color: snowwhite;
 
 /*$theme-secondary-color: mediumpurple;*/
 
@@ -28,6 +29,10 @@ body {
     text-transform: uppercase;
     font-family: $font-family, sans-serif;
     font-weight: 300;
+}
+
+.ion-view {
+    background-color: $theme-background-color;
 }
 
 triangle {
@@ -54,6 +59,10 @@ triangle {
         height: 100%;
         -webkit-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));
         filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));
+
+        polygon {
+            fill: $theme-primary-color;
+        }
     }
     div[class$='logo'] {
         position: absolute;

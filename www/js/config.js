@@ -136,8 +136,24 @@ var AFL = {
             }
         },
         SQUAD_COMPOSITION : {
-            isToBeChecked : false,
+            isToBeChecked : true,
             checkCondition : function(scope) {
+                var totalImpactPlayers = 0;
+                var playerPerTeamCount = [0, 0, 0, 0, 0];
+                var playerTypePerTeamCount = [0, 0, 0, 0];
+                for(var i = 0; i < scope.currentTeam.length; i++) {
+                    if(scope.currentTeam[i].isImpact == 1) {
+                        totalImpactPlayers++;
+                    }
+
+                    playerPerTeamCount[scope.currentTeam[i].playerAplTeamId]++;
+
+                    playerTypePerTeamCount[scope.currentTeam[i].playerTypeId]++;
+                }
+
+                console.log(totalImpactPlayers);
+                console.dir(playerPerTeamCount);
+                console.dir(playerTypePerTeamCount);
                 return true;
             }
         }

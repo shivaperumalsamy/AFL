@@ -22,7 +22,6 @@ directives.directive('triangle', ['$state', '$log', function($state, $log) {
 
 			var triangle = document.createElementNS(svgNS, 'polygon');
 			trianglePath = "0,0 " + window.innerWidth + ",0 " + scope.halfWindowWidth + "," + scope.halfWindowHeight;
-			triangle.setAttributeNS(null, 'fill', 'blueviolet');
 			triangle.setAttributeNS(null, 'points', trianglePath);
 
 			svg.append(triangle);

@@ -1,0 +1,12 @@
+<ion-modal-view>
+        <div class="condition_modal_wrapper">
+            <div class="header">Conditions</div>
+            <h6> Please satisfy the following conditions</h6>
+            <ul class="condition_messages">
+                <li class="condition" ng-repeat="conditionName in conditionNames" ng-show="!conditions[conditionName]">
+                    {{ AFL_MESSAGES.CONDITIONS[conditionName] }}
+                </li>
+            </ul>
+            <button type="button" class="button button-primary button-block condition_button" ng-click="hideConditionModal()">Close</button>
+        </div>
+</ion-modal-view>

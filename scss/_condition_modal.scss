@@ -1,0 +1,19 @@
+.condition_modal_wrapper {
+    h6 {
+        margin: 30px;
+        font-family: 'Open sans', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .condition_messages {
+        list-style-type: disc;
+        margin: 0 auto;
+        width: 70%;
+    }
+    button {
+        position: absolute;
+        bottom: 30px;
+        width: 50%;
+        left: calc(50% - 25%);
+    }
+}
