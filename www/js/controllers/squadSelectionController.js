@@ -224,17 +224,20 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveSquad : start");
 
 
-        if (!$scope.checkConditions()) {
-            $scope.showConditionModal();
-        } else {
-
-            SquadSelectionFactory.insertPlayerSelection($scope.currentTeam, $scope.currentUser).then(function() {
-                alert("success");
-
-            }, function() {
-                alert("failure");
+        // if (!$scope.checkConditions()) {
+        //     $scope.showConditionModal();
+        // } else {
+        $utils.showSpinner();
+        SquadSelectionFactory.insertPlayerSelection($scope.currentTeam, $scope.currentUser).then(function() {
+            $utils.showAlert("Success", "Team has been saved.");
+            $state.go(AFL.PAGES.PROFILE.name, {
+                teamId: $rootScope.currentUser.teamId
             });
-        }
+        }, function() {
+            $utils.hideSpinner();
+            $utils.showAlert("Error", "Some error occured. Please try again");
+        });
+        // }
         $log.debug(AFL.PAGES.SQUAD_SELECTION.controller + ".saveSquad : end");
     };
 
@@ -308,7 +311,7 @@ controllers.controller(AFL.PAGES.SQUAD_SELECTION.controller, ['$scope', '$rootSc
 
     $scope.showConditionMessage = function(conditionName) {
 
-        if(!$scope.conditions[conditionName]) {
+        if (!$scope.conditions[conditionName]) {
             $utils.showAlert("Condition", $rootScope.AFL_MESSAGES.CONDITIONS[conditionName]);
         }
     }

@@ -82,12 +82,14 @@ services.factory(AFL.PAGES.SQUAD_SELECTION.factory, ['$q', '$utils', '$log', fun
                 players : JSON.stringify(players)
             };
 
-            console.log('response');
-            console.dir(requestData);
             deferred.resolve();
             $utils.callBackend(AFL.BACK_END.RequestType.POST, AFL.BACK_END.MethodNames.insertPlayerSelection, requestData).then(function(response) {
-                console.dir(response);
-                deferred.resolve();
+                if (response.type === AFL.BACK_END.ResponseType.SUCCESS) {
+                    deferred.resolve();
+                } 
+                else {
+                    deferred.reject();
+                }
             },
             function() {
                 $log.debug("Error while contacting BACK_END");

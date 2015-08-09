@@ -9,8 +9,9 @@ body {
 
 .button-primary,
 .button-primary:active,
-.button-primary:hover {
-  background: #E36656;
+.button-primary:hover,
+.button.button-positive.activated {
+  background: #E36656 !important;
   color: #FFFFFF;
   border: 0px;
   text-transform: uppercase;
@@ -68,10 +69,9 @@ triangle {
   overflow-y: scroll; }
 
 .general_form {
-  position: absolute;
   width: 95%;
-  left: 2.5%;
-  bottom: 50px; }
+  margin-left: 2.5%;
+  margin-top: 100px; }
   .general_form .item-input {
     border-left: 0px;
     border-right: 0px; }

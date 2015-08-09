@@ -1,28 +1,26 @@
 <ion-view>
-    <div class="page_wrapper login_wrapper">
-        <span class="menu_button ball" ng-click="toggleLeft()">
+    <ion-content>
+        <div class="login_wrapper">
+            <span class="menu_button ball" ng-click="toggleLeft()">
             <i class="icon ion-navicon"></i>
         </span>
-        <triangle with_avnet_logo></triangle>
-        <div class="login_form_wrapper general_form">
-            <div class="login_error_messages">
-                <span class="error_message"
-                      ng-show="(!loginForm.username.$pristine && loginForm.username.$invalid) || (loginForm.$submitted && loginForm.username.$invalid)">{{ AFL_MESSAGES.USERNAME_REQUIRED }}</span>
-                <span class="error_message"
-                      ng-show="(!loginForm.password.$pristine && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)">{{ AFL_MESSAGES.PASSWORD_REQUIRED }}</span>
+            <triangle with_avnet_logo></triangle>
+            <div class="login_form_wrapper general_form">
+                <div class="login_error_messages">
+                    <span class="error_message" ng-show="(!loginForm.username.$pristine && loginForm.username.$invalid) || (loginForm.$submitted && loginForm.username.$invalid)">{{ AFL_MESSAGES.USERNAME_REQUIRED }}</span>
+                    <span class="error_message" ng-show="(!loginForm.password.$pristine && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)">{{ AFL_MESSAGES.PASSWORD_REQUIRED }}</span>
+                </div>
+                <form name="loginForm" ng-submit="loginFormSubmit(loginForm) " novalidate>
+                    <ion-item class="item-input">
+                        <input type="email" name="username" placeholder="Username" ng-model="loginFormObject.username" required/>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <input type="password" name="password" placeholder="Password" ng-model="loginFormObject.password" required/>
+                    </ion-item>
+                    <button type="submit" class="button button-primary button-block">Sign in</button>
+                </form>
+                <span class="sign_up_link" ui-sref="register">Or SignUp?</span>
             </div>
-            <form name="loginForm" ng-submit="loginFormSubmit(loginForm) " novalidate>
-                <ion-item class="item-input">
-                    <input type="text" name="username" placeholder="Username" ng-model="loginFormObject.username"
-                           required/>
-                </ion-item>
-                <ion-item class="item-input">
-                    <input type="password" name="password" placeholder="Password" ng-model="loginFormObject.password"
-                           required/>
-                </ion-item>
-                <button type="submit" class="button button-primary button-block">Sign in</button>
-            </form>
-            <span class="sign_up_link" ui-sref="register">Or SignUp?</span>
         </div>
-    </div>
+    </ion-content>
 </ion-view>

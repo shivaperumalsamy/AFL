@@ -1,17 +1,18 @@
 controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', '$rootScope', '$utils', '$state', '$log', AFL.PAGES.PROFILE.factory, function($stateParams, $scope, $rootScope, $utils, $state, $log, ProfileFactory) {
-    $scope.teamProfile = {};
-    $scope.currentTeam = [];
-    $scope.recentMatches = [];
 
     $scope.$on('$ionicView.beforeEnter', function() {
         $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : start");
         var teamId = $stateParams.teamId;
 
+        $scope.teamProfile = {};
+        $scope.currentTeam = [];
+        $scope.recentMatches = [];
+
         if (teamId == AFL.NON_EXISTENT) {
-        	$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team does not exist");
+            $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team does not exist");
             $scope.userTeamExists = false;
         } else {
-        	$log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team exists with id: " + teamId);
+            $log.debug(AFL.PAGES.PROFILE.controller + ".beforeEnter : User team exists with id: " + teamId);
             $scope.userTeamExists = true;
 
             if ($rootScope.currentUser && $rootScope.currentUser.isLoggedIn) {
@@ -69,8 +70,8 @@ controllers.controller(AFL.PAGES.PROFILE.controller, ['$stateParams', '$scope', 
         $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : start");
 
         $state.go(AFL.PAGES.SQUAD_SELECTION.name, {
-            currentTeam : JSON.stringify($scope.currentTeam),
-            teamProfile : JSON.stringify($scope.teamProfile)
+            currentTeam: JSON.stringify($scope.currentTeam),
+            teamProfile: JSON.stringify($scope.teamProfile)
         });
 
         $log.debug(AFL.PAGES.PROFILE.controller + ".editSquad : end");

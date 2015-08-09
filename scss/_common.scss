@@ -27,8 +27,9 @@ body {
 
 .button-primary,
 .button-primary:active,
-.button-primary:hover {
-    background: $theme-primary-color;
+.button-primary:hover,
+.button.button-positive.activated {
+    background: $theme-primary-color !important;
     color: $theme-primary-font-color;
     border: 0px;
     text-transform: uppercase;
@@ -96,10 +97,9 @@ triangle {
 }
 
 .general_form {
-    position: absolute;
     width: 95%;
-    left: 2.5%;
-    bottom: 50px;
+    margin-left: 2.5%;
+    margin-top: 100px;
     .item-input {
         border-left: 0px;
         border-right: 0px;
